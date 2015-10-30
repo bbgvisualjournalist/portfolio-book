@@ -75,7 +75,7 @@ p a, strong{
 	-o-transform: rotate(-90deg);
 
 	text-align: right;
-	background-color: rgba(10, 10, 10, .3);
+	/*background-color: #333;*/
 	background-color: #900;
 	margin:0 auto;
 	padding:5px 15px 7px 15px;
@@ -105,6 +105,7 @@ p a, strong{
 	width: 85%;
 	margin-left: auto;
 	margin-right: auto;
+	text-wrap: balanced;
 }
 #about h2.summary{
 	text-align: center;
@@ -118,7 +119,7 @@ p a, strong{
 }
 #about .description{
 	width: 80%;
-	margin:25px auto 50px auto;
+	margin:25px auto 75px auto;
 	font-family: serif;
 	line-height: 1.5em;
 }
@@ -148,16 +149,16 @@ p a, strong{
 	height: 60px;
 	position: absolute;
 	bottom:-20px;
-	right:0px;
+	left:0px;
 	z-index: 9999;
-	padding: 45px 40px 0 0;
+	padding: 45px 0 0 0;
 }
 #illustration.pano #swipe:before{
 	content: 'SCROLL';
 	position: absolute;
-    right: 30px;
+    left: 30px;
     font-size: .7em;
-    text-align: right;
+    text-align: left;
     font-weight: bold;
 }
 
@@ -204,6 +205,41 @@ p a, strong{
 
 
 
+#menuBar{
+	width:100%;
+	position: fixed;
+	bottom:0;
+	padding:0;
+	margin:0;
+	/*border-top: 1px solid #CCC;*/
+	box-shadow: 2px 0px 3px #333;
+}
+#menuBar ul {
+	margin:0;
+	padding:0;
+	background: #FFF;
+}
+#menuBar ul li{
+	display: inline-block;
+	width:23%;
+	padding: 12px 0;
+	margin:0;
+	text-align: center;
+	border-right:1px solid #C2C2C2;
+	font-size: .8em;
+	color: #999;
+	text-transform: uppercase;
+}
+#menuBar ul a:hover li{
+	font-weight: bold;
+	color: #900;
+}
+#menuBar ul a:last-of-type li{
+	border-right: none;
+}
+
+
+
 @media (min-width: 500px) {
 	#about h1{
 		font-size: 2.5em;
@@ -227,14 +263,10 @@ p a, strong{
 	}
 
 	#about .description{
-		width: 80%;
-		margin:25px auto 50px auto;
 		-webkit-column-count: 2;
 		-moz-column-count: 2;
 		column-count: 2;
 	}
-
-	
 }
 
 
@@ -249,18 +281,22 @@ p a, strong{
 		height:150px; 
 		margin: 0 0 20px 0;
 	}
-
-
-
 	#illustration img{
 		display: none;
 	}
+	#illustration.pano img{
+		display: block;
+	}
 	#illustration, #about{
-		width: 49.5%;
+		width: 49.8%;
 		margin:0;
 		padding:0;
 		height:100%;
 	}
+	#about{
+		width: 50%;
+	}
+
 	#illustration{
 		float:left;
 		height:100%;
@@ -279,6 +315,7 @@ p a, strong{
 	}
 	#illustration h3{
 		display: none;
+		/*top:22%;*/
 	}
 
 	#about{
@@ -292,10 +329,10 @@ p a, strong{
 		display: inline-block;
 		text-align: center;
 		margin:0 auto 10% auto;
-		padding:20px 10px 10px 10px;
+		padding:7px 10px 7px 10px;
 		/*background-color: rgba(10, 10, 10, .7);*/
 		background-color: #900;
-		border-radius: 0 0 4px 4px;
+		border-radius: 0 0 3px 3px;
 		color:#FFF;
 		text-transform: uppercase;
 		font-size: .8em;
@@ -325,6 +362,21 @@ p a, strong{
 		-moz-column-count: 3;
 		column-count: 3;
 	}
+
+
+	.pano #menuBar{
+		width:100%;
+	}
+
+	#menuBar{
+		width:50.25%;
+		bottom:0;
+		right:0;
+	}
+	#menuBar ul li{
+		width:24%;
+	}
+
 }
 @media (min-width: 1200px) {
 	#about .description{

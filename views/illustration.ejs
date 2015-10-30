@@ -1,6 +1,9 @@
 <html>
 <head>
 	<% include partials/template/head.ejs %>
+	<style type="text/css">
+	#menuBox{width: 100%;height: 200px; background: #CCC; box-shadow: inset -3px -3px 10px #999; display: none;}
+	</style>
 </head>
 <body>
 <div id='header'>
@@ -21,9 +24,10 @@
 		</div>
 
 		<div id="about">
+			<div id='menuBox'></div>
 			<div class='label'>
 				<h3 <% if (projectData.detail==''){ %>class="noDetail"<% } %>>
-					<%= projectData.category %>
+					drawing-hands<br/><span style='font-weight:normal; font-size: .8em;'><%= projectData.category %></span>
 				</h3>
 			</div>
 
@@ -33,10 +37,16 @@
 				</div>
 			<% } %>
 
-			<h1><%= projectData.title %></h1>
-			<h2 class='summary'><%= projectData.summary %></h2>
+			<h1 class='balance-text'><%= projectData.title %></h1>
+			<h2 class='summary balance-text'><%= projectData.summary %></h2>
 			<div class="description<% if ( projectData.singlecolumn == "TRUE"){ %> singleColumn<% } %>">
 				<%- projectData.descriptionSplit %>
+			</div>
+
+			<div id='menuBar'>
+				<ul>
+					<a href=''><li>Paintings</li></a><a href=''><li>Panos</li></a><a href='https://twitter.com/drawinghands'><li>Twitter</li></a><a href=''><li>About</li></a>
+				</ul>
 			</div>
 		</div>
 		<a href='' id='prev'><div></div></a>
@@ -44,32 +54,48 @@
 
 	<% } else {%>
 
-		<div id="illustration" class='pano' style='background-image: url(/images/<%= projectData.imagebase %>.jpg);'>
+		<div id="illustration" class='pano' style='box-shadow: 0 0 5px #333;'>
 			<img src='/images/<%= projectData.imagebase %>.jpg' style=''/>
 			<div id='swipe'></div>
 		</div>
 		<div id="about" class='pano'>
+			<div id='menuBox'></div>
 			<div class='label'>
 				<h3 <% if (projectData.detail==''){ %>class="noDetail"<% } %>>
-					<%= projectData.category %>
+					drawing-hands<br/><span style='font-weight:normal; font-size: .8em;'><%= projectData.category %></span>
 				</h3>
 			</div>
-			<h1><%= projectData.title %></h1>
-			<h2 class='summary'><%= projectData.summary %></h2>
+			<h1 class='balance-text'><%= projectData.title %></h1>
+			<h2 class='summary balance-text'><%= projectData.summary %></h2>
 			<div class="description <% if ( projectData.singlecolumn == true){ %> singleColumn<% } %>">
 				<%- projectData.descriptionSplit %>
 			</div>
+	
+			<div id='menuBar'>
+				<ul>
+					<a href=''><li>Paintings</li></a>
+					<a href=''><li>Panos</li></a>
+					<a href='https://twitter.com/drawinghands'><li>Twitter</li></a>
+					<a href=''><li>About</li></a>
+				</ul>
+			</div>
+
 		</div>
 		<a href='' id='prev'><div></div></a>
 		<a href='' id='next'><div></div></a>
 
 	<% }%>
-
 </div>
 <% include partials/template/scripts.ejs %>
 <script type="text/javascript">
 	$('#prev').prop('href', '<%= previousProject %>');
 	$('#next').prop('href', '<%= nextProject %>');
+
+		//Dropdown navigation
+	$("#about h3" ).click(function() {
+		$( "#about #menuBox" ).slideToggle("drop");
+	});
+
 </script>
 
 </body>
