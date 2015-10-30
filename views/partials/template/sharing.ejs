@@ -1,0 +1,6 @@
+<div class='box'>
+	<%if (data[0].twitter!=''){ %><a href='https://twitter.com/<%= data[0].twitter %>' class='share' id='twitter'></a><% } %>
+	<%if (data[0].email!=''){ %><a href='mailto:<%= data[0].email %>' class='share' id='email'></a><% } %>
+	<%if (data[0].linkedin!=''){ %><a href='https://linkedin.com/in/<%= data[0].linkedin %>' class='share' id='linkedin'></a><% } %>
+	<%if (data[0].github!=''){ %><a href='https://github.com/<%= data[0].github %>' class='share' id='github'></a><% } %>
+</div>

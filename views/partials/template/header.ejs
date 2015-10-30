@@ -1,0 +1,18 @@
+<style type="text/css">
+</style>
+
+<div id='header'>
+	<div class='column bio'>
+		<p><img src="<%- data[0].mugshot %> " style="float: left;">
+				<%- description %>
+		</p>
+	</div><div class='column follow'>
+		<h3><a href='/portfolio/' style=''>PORTFOLIO</a></h3>
+		<ul>
+			<% for (var i = 0; i < global.categories.length; i++) {%>
+			<a href='/portfolio/<%=  global.categories[i] %>/'><li class='capitalize'>&nbsp;• <%=  global.categories[i] %></li></a>
+			<% } %>
+			<a href='/blog/'><li>Blog</li></a>
+		</ul>
+	</div>
+</div>

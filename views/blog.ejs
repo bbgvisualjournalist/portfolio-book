@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include partials/template/head.ejs %>
+	</head>
+	<body>
+		<% include partials/template/menu.ejs %>
+
+		<% include partials/template/header.ejs %>
+
+
+		<div id='container' style='padding:0;'>
+
+			<div id='sharingLinks'>
+				<% include partials/template/sharing.ejs %>
+			</div>
+
+
+				<div class='inset' style="overflow: hidden; background-color: #FFF;">
+					<div class='blogRoll'>
+						<% include partials/template/loopBlog.ejs %>
+					</div>
+					<div class='sidebar'>
+						<div class='sidebarInset'>
+						<h3 style="padding: 30px 0 15px 5%; color: orange; font-weight: bold; text-transform: uppercase;font-family: 'Oswald', 'Roboto Slab', arial, sans-serif;">Recent projects</h3>
+						<% include partials/template/loop.ejs %>
+						</div>
+					</div>
+				</div>
+
+
+			<div id='containerGrid'>
+			</div><!-- containerGrid -->
+
+
+
+
+		</div><!-- container -->
+		<% include partials/template/footer.ejs %>
+
+		<% include partials/template/scripts.ejs %>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include partials/template/head.ejs %>
+	</head>
+	<body>
+		<% include partials/template/menu.ejs %>
+
+		<% include partials/template/header.ejs %>
+
+		<!--
+		<div id='navigation'>
+			<a id='prev' title='previousprofile'>&nbsp;</a>
+			<a id='next' title='nextprofile'>&nbsp;</a>
+			<div id='screenLeft'></div>
+			<div id='screenRight'></div>
+		</div>
+		-->
+
+		<div id='container'>
+
+			<div id='sharingLinks'>
+				<% include partials/template/sharing.ejs %>
+			</div>
+
+
+			<div class='entry' style='margin-bottom: 20px;'>
+				<div class='floatLeft category <%= category %>'>
+				<% if (category != 'showAll'){ %>
+					<h3 class='category '><a href='/portfolio/<%= category %>'><%= category %> portfolio</a></h3>
+				<% } else { %>
+					<h3 class='category'>Recent projects</h3>
+				<% } %>
+				</div>
+				<% if (category != 'showAll'){ %>
+					<div class='floatRight'><h3 class='date'><a href='/portfolio/'>View full portfolio</a></h3></div>
+				<% } %>
+
+			</div>
+
+
+
+			<div id='containerGrid'>
+				<div class='inset'>
+
+				<% include partials/template/loop.ejs %>
+
+				</div>
+			</div><!-- containerGrid -->
+
+
+
+
+		</div><!-- container -->
+		<% include partials/template/footer.ejs %>
+
+		<% include partials/template/scripts.ejs %>
+	</body>
+</html>

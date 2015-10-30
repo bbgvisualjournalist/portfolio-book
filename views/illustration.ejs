@@ -1,0 +1,338 @@
+<html>
+<head>
+	<% include partials/template/head.ejs %>
+
+	<style type="text/css">
+		body{
+			font-family: sans-serif;
+			padding:0;
+			margin:0;
+			font-style: 100%;
+		}
+		#container{width:100%;margin:0;padding:0;}
+		#illustration{
+			background-color: #C2C2C2;
+			background: url(/images/<%= projectData.imagebase %>.jpg) no-repeat center center / cover;
+			/*height: 100vw;*/
+			width:100%;
+			height: auto;
+		}
+		#illustration.bottom{
+			background-position: center bottom;
+		}
+		#illustration.top{
+			background-position: center top;
+		}
+		#illustration.left{
+			background-position: left center;
+		}
+		#illustration.right{
+			background-position: right center;
+		}
+		#illustration.fit{
+			background-size: contain;
+		}
+		#illustration.square{
+			background-color: #C2C2C2;
+			background: url(/images/<%= projectData.imagebase %>.jpg) no-repeat center center / contain;
+		}
+
+		#illustration .label{
+			text-align: center;
+			display: block;
+			margin: 0 auto;
+			position: absolute;
+			top:0;
+		}
+		#illustration h3{
+			position:fixed;
+			left:-64px;
+			top:90px;
+			/* Safari */
+			-webkit-transform: rotate(-90deg);
+			/* Firefox */
+			-moz-transform: rotate(-90deg);
+			/* IE */
+			-ms-transform: rotate(-90deg);
+			/* Opera */
+			-o-transform: rotate(-90deg);
+
+			text-align: right;
+			background-color: rgba(10, 10, 10, .3);
+			background-color: #900;
+			margin:0 auto;
+			padding:5px 15px 7px 15px;
+			display: inline-block;
+			color:#FFF;
+			font-size: .8em;
+			text-transform: uppercase;
+		}
+		#illustration h3 a{
+			margin:0;
+			color:#FFF;
+			padding:0;
+			text-decoration: none;
+		}
+		#about h3{
+			display: none;
+		}
+		#detail {
+			display: none;
+		}
+		#about h1{
+			text-align: center;
+			font-size: 2em;
+			line-height: 1.2em;
+			font-family: 'Oswald','Roboto Slab', arial, sans-serif;
+			margin: 20px;
+		}
+		#about h2.summary{
+			text-align: center;
+			font-family: serif;
+			font-style: italic;
+			font-weight: 300;
+			color: #999;
+			font-size: 1.2em;
+			margin: 5px auto 20px auto;
+			padding: 0 8%;
+		}
+		#about .description{
+			width: 80%;
+			margin:25px auto 50px auto;
+			font-family: serif;
+			line-height: 1.5em;
+		}
+		#about .description p{
+			margin:0 0 1.5em 0;
+		}
+
+
+		#illustration.pano{
+			width: 100%;
+			height: 300px;
+			overflow: scroll;
+		}
+		#about.pano{
+			width: 100%;
+		}
+		#about.pano h3{
+			margin:0 auto 2% auto !important;
+		}
+
+
+		@media (min-width: 500px) {
+			#about h1{
+				font-size: 2.5em;
+			}
+		}
+		@media (min-width: 700px) {
+			#about h1{
+				width: 90%;
+				margin:25px auto 0 auto;
+			}
+			#about h2.summary{
+				width: 80%;
+				margin: 5px auto 0 auto;
+			}
+
+			#about .description{
+				width: 80%;
+				margin:25px auto 50px auto;
+				-webkit-column-count: 2;
+				-moz-column-count: 2;
+				column-count: 2;
+			}
+		}
+
+		
+		@media (min-width: 900px) {
+
+			#detail {
+				display: block;
+				text-align:center;
+			}
+			#detail img {
+				width: auto; 
+				height:150px; 
+				margin: 0 0 20px 0;
+			}
+
+
+
+			#illustration img{
+				display: none;
+			}
+			#illustration, #about{
+				width: 49.5%;
+				margin:0;
+				padding:0;
+				height:100%;
+			}
+			#illustration{
+				float:left;
+				height:100%;
+				border-left:1px solid #CCC;
+			}
+			#illustration .gradient{
+				background-image:linear-gradient(
+						to left,
+						rgba(10, 10, 10, .3),
+						rgba(10, 10, 10, 0) 10%
+				);
+				width: 100%;
+				height:100%;
+				padding:0;
+				margin:0;
+			}
+			#illustration h3{
+				display: none;
+			}
+
+			#about{
+				float:right;
+				overflow: scroll
+			}
+			#about .label{
+				text-align: center;
+			}
+			#about h3{
+				display: inline-block;
+				text-align: center;
+				margin:0 auto 10% auto;
+				padding:20px 10px 10px 10px;
+				/*background-color: rgba(10, 10, 10, .7);*/
+				background-color: #900;
+				border-radius: 0 0 4px 4px;
+				color:#FFF;
+			}
+			#about h3.noDetail{
+				margin-bottom: 30%;
+			}
+			#about h1{
+				width: 75%;
+				margin:0 auto;
+			}
+			#about h2.summary{
+				width: 66%;
+				font-size: 1.2em;
+			}
+			#about .description{
+				width: 66%;
+				margin:25px auto 100px auto;
+				-webkit-column-count: 1;
+				-moz-column-count: 1;
+				column-count: 1;
+			}
+			#about.pano {
+				float:none;
+				height: auto;
+			}
+			#about.pano .description{
+				width: 80%;
+				margin:25px auto 100px auto;
+				-webkit-column-count: 3;
+				-moz-column-count: 3;
+				column-count: 3;
+			}
+
+		}
+		@media (min-width: 1200px) {
+			#about .description{
+				-webkit-column-count: 1;
+				-moz-column-count: 1;
+				column-count: 1;
+			}
+			#about .description.singleColumn{
+				-webkit-column-count: 1;
+				-moz-column-count: 1;
+				column-count: 1;
+			}
+			#about h1{
+				font-size: 3em;
+			}
+			#about.pano .description{
+				-webkit-column-count: 4;
+				-moz-column-count: 4;
+				column-count: 4;
+			}
+		}
+		@media (min-width: 1400px) {
+			#about .description{
+				-webkit-column-count: 2;
+				-moz-column-count: 2;
+				column-count: 2;
+			}
+		}
+	</style>
+</head>
+<body>
+<div id='header'>
+</div>
+
+<div id='container'>
+	<%if (projectData.imageshape!='pano'){ %>
+
+	<div id="illustration" class='<%= projectData.imageshape %>'>
+
+			<div class='gradient'>
+				<div class='label'>
+					<h3>
+					<a href='https://twitter.com/drawinghands'>@drawinghands</a>
+					</h3>
+				</div>
+			</div>
+		<img src='/images/<%= projectData.imagebase %>.jpg' style='width: 100%; height: auto; padding:0; margin:0;'/>
+	</div>
+
+	<div id="about">
+		<div class='label'>
+			<h3 <% if (projectData.detail==''){ %>class="noDetail"<% } %>>
+				<%= projectData.category %>
+			</h3>
+		</div>
+
+		<% if (projectData.detail){ %>
+			<div id='detail' >
+				<img src='/images/<%= projectData.detail %>' />
+			</div>
+		<% } %>
+
+		<h1><%= projectData.title %></h1>
+		<h2 class='summary'><%= projectData.summary %></h2>
+		<div class="description<% if ( projectData.singlecolumn == "TRUE"){ %> singleColumn<% } %>">
+			<%- projectData.descriptionSplit %>
+		</div>
+	</div>
+
+	<% } else {%>
+
+	<div id="illustration" class='pano'>
+		<img src='/images/<%= projectData.imagebase %>.jpg' style='width: auto; height: 300px; padding:0; margin:0;'/>
+	</div>
+	<div id="about" class='pano'>
+		<div class='label'>
+			<h3 <% if (projectData.detail==''){ %>class="noDetail"<% } %>>
+				<%= projectData.category %>
+			</h3>
+		</div>
+		<h1><%= projectData.title %></h1>
+		<h2 class='summary'><%= projectData.summary %></h2>
+		<div class="description <% if ( projectData.singlecolumn == true){ %> singleColumn<% } %>">
+			<%- projectData.descriptionSplit %>
+		</div>
+	</div>
+
+	<% }%>
+
+</div>
+<% include partials/template/scripts.ejs %>
+<script type="text/javascript">
+	document.location.hash = 'container';
+
+	$('#prev').prop('href', '<%= previousProject %>');
+	$('#next').prop('href', '<%= nextProject %>');
+
+</script>
+
+</body>
+</html>

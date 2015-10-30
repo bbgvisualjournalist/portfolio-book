@@ -1,0 +1,18 @@
+		<% for (var i=blogData.length-1;i>=0; i--){ %>
+			<% if (blogData[i].public == 'TRUE'){ %>
+			<div class='entry blog' data-blog-number=<%= i %> >
+				<div class='floatLeft category blog <%= blogData[i].category %>'>
+				<h3 class='category'><a href='/portfolio/<%= blogData[i].category %>'>Blog: <%= blogData[i].category %></a></h3>
+				</div>
+				<div class='floatRight'><h3 class='date'><%= blogData[i].date %> %></h3></div>
+				<div class='clearMe'></div>
+				<h2 class='headline'><a href='<%= blogData[i].postnumber %>'><%= blogData[i].title %></a></h2>
+
+					<a href='<%= blogData[i].postnumber %>'><img src='<%= blogData[i].image %>' class='<% if(blogData[i].verticalimage=='TRUE') {%>verticalImage<% } %>'/></a>
+
+
+				<div class='description'><%- blogData[i].postSplit %><p><a href='<%= blogData[i].postnumber %>' style='font-family:Arial, sans-serif; font-weight:bold;'>READ MORE</a></p></div>
+			</div><!--entry blog -->
+
+			<% } %>
+		<% } %>

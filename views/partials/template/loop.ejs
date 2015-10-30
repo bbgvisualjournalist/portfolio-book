@@ -1,0 +1,21 @@
+	<% var counter = 0 %>
+	<% for (var i=portfolioData.length-1;i>=0; i--){ %>
+		<% if (portfolioData[i].category==category||category=='showAll'){ %>
+			<% if (counter<loopLimit&&portfolioData[i].public=='TRUE') { %>
+				<div class='portfolioGrid portfolioPiece' data-portfolio-number=<%= i %> >
+					<a href='/project/<%= portfolioData[i].projectnumber%>'>
+						<!--<a href='/project/<%= portfolioData[i].projectnumber%>/<% encodeURI(portfolioData[i].title) %>'>-->
+						<div class='square' style='background-image: url(/images/thumb_<%=portfolioData[i].imagebase %>.jpg);'>
+							<img src="/images/square_transparent.png" class='squareImg'/>
+							<img src="/images/rectangle_transparent.png" class='rectangleImg'/>
+						</div>
+						<div class='description'>
+							<h2 class='headline'><span class='<%= portfolioData[i].category %>'><%= portfolioData[i].category %>: </span><%= portfolioData[i].title %></h2>
+						</div>
+						<div class='clearMe'></div>
+					</a>
+				</div>
+			<% counter++ %>
+			<% } %>
+		<% } %>
+	<% } %>

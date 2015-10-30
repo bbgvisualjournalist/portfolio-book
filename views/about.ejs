@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include partials/template/head.ejs %>
+	</head>
+	<body>
+		<% include partials/template/menu.ejs %>
+
+		<% include partials/template/header.ejs %>
+
+		<!--
+		<div id='navigation'>
+			<a id='prev' title='previousprofile'>&nbsp;</a>
+			<a id='next' title='nextprofile'>&nbsp;</a>
+			<div id='screenLeft'></div>
+			<div id='screenRight'></div>
+		</div>
+		-->
+
+		<div id='container'>
+
+			<div id='sharingLinks'>
+				<div class='box'>
+				<a href='https://twitter.com/<%= data[0].twitter %>' class='share' id='twitter'></a>
+				<a href='https://linkedin.com/in/<%= data[0].linkedin %>' class='share' id='linkedin'></a>
+				</div>
+			</div>
+
+
+
+			<div id='containerGrid'>
+				<div class='inset'>
+
+				</div>
+			</div><!-- containerGrid -->
+
+
+		</div><!-- container -->
+		<% include partials/template/footer.ejs %>
+
+		<% include partials/template/scripts.ejs %>
+	</body>
+</html>

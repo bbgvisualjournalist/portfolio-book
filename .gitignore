@@ -25,3 +25,19 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
+
+# JSON data
+data/*.json
+
+# Ignore the config.js; but allow the config.sample.js
+config.js
+
+# Ignore the JPGs from the portfolio
+public/images/*.jpg
+public/images/*.png
+
+# Ignore the SWFs from the portfolio
+public/flash/*.swf
+
+# Ignore Webstorm folder
+/.idea/

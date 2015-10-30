@@ -1,0 +1,12 @@
+<div id='footer'>
+	<div id='contactInfo'>
+		<h3>CONTACT ME</h3>
+		<ul>
+		<%if (data[0].twitter!=''){ %><a href='https://twitter.com/<%= data[0].twitter %>'><li class=''>Twitter: @<%- data[0].twitter %></li></a><% } %>
+		<%if (data[0].email!=''){ %><a href="mailto:<%= data[0].email %>"><li class=''><span class='label'>Email: </span><%- data[0].email %> </li></a><% } %> 
+		<%if (data[0].phone!=''){ %><a href='tel://<%= data[0].phone %>'><li class=''><span class='label'>Phone: </span><%- data[0].phone %> </li></a><% } %>
+		</ul>
+	</div>
+	<!-- This portfolio and blog site is built as a Node Express app. It uses a Google Spreadsheet as a data source. -->
+	<!-- You can find out more or download the project at https://github.com/visualjournalist/portfolio-sheet -->
+</div>

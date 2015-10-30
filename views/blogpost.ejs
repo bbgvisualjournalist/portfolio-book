@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include partials/template/head.ejs %>
+	</head>
+	<body>
+		<% include partials/template/menu.ejs %>
+
+		<% include partials/template/header.ejs %>
+
+
+		<div id='container'>
+
+			<div id='sharingLinks'>
+				<% include partials/template/sharing.ejs %>
+			</div>
+
+
+			<div class='inset'>
+
+			<div class='entry blog' id='projectEntry'>
+				<div class='floatLeft category blog'>
+				<h3 class='category'><a href='/blog/'>Blog post</a></h3>
+				</div>
+				<div class='floatRight'><h3 class='date'><%= projectData.date %> %></h3></div>
+				<div class='clearMe'></div>
+				<h2 class='headline'><%= projectData.title %></h2>
+
+
+
+
+				<div class='<%= verticalImage %>'>
+					<a href='<%= projectData.projectlink %>' target='_blank'><img src='<%= projectData.image %>'/></a>	
+					<div class='credit' style='padding-right:0;'><%= projectData.employer %></div>
+				</div>
+
+				<div class='description'><%- projectData.descriptionSplit %></div>
+
+
+
+				<ul class='listView'>
+					<% if (projectData.projectlink!=""){ %>
+					<a href='<%= projectData.projectlink %>'><li>View the project <% if (projectData.medium=='Flash'){ %> (Requires Flash) <% } %></li></a>
+					<% } %>
+					<% if (projectData.videolink!=""){ %>
+					<a href='<%= projectData.videolink %>'><li>Watch a video</li></a>
+					<% } %>
+					<% if (projectData.githublink!=""){ %>
+					<a href='<%= projectData.githublink %>'><li>Check out the code</li></a>
+					<% } %>
+				</ul>
+				<div class='clearMe'></div>
+
+			</div>
+
+
+			</div>
+
+
+
+		</div><!-- container -->
+		<% include partials/template/footer.ejs %>
+
+		<% include partials/template/scripts.ejs %>
+		<script type="text/javascript">
+			document.location.hash = 'container';
+		</script>
+	</body>
+</html>

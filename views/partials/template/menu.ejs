@@ -1,0 +1,25 @@
+<div id='menu'>
+	<div id='titleBar'>
+		<h1><a href='/'>
+				<% if (data[0].navtitle!=''){ %>
+				<%- data[0].navtitle %>
+				<% } else { %>
+				<%= data[0].title %>
+				<% } %>
+			</a></h1>
+		<img src='/images/menu.png' />
+	</div>
+	<div class='clearIt'></div>
+	<ul id='dropdown'>
+		<a href='/portfolio/'><li>Portfolio</li></a>
+		<% for (var i = 0; i < global.categories.length; i++) {%>
+		<a href='/portfolio/<%=  global.categories[i] %>/'><li class='capitalize'>&nbsp;• <%=  global.categories[i] %></li></a>
+		<% } %>
+		<a href='/blog/'><li>Blog</li></a>
+
+		<%if (data[0].twitter!=''){ %><a href='https://twitter.com/<%= data[0].twitter %>'><li class='social'>Twitter: @<%- data[0].twitter %></li></a><% } %>
+		<%if (data[0].email!=''){ %><a href="mailto:<%= data[0].email %>"><li class='social'><span class='label'>Email: </span><%- data[0].email %> </li></a><% } %>
+		<%if (data[0].linkedin!=''){ %><a href='https://linkedin.com/in/<%= data[0].linkedin %>/en'><li class='social'>LinkedIn</li></a><% } %>
+		<%if (data[0].github!=''){ %><a href='https://github.com/<%= data[0].github %>/'><li class='social'>Github</li></a><% } %>
+	</ul>
+</div>
