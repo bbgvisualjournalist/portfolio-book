@@ -30,7 +30,7 @@
 				<div class='gradient'>
 					<div class='label'>
 						<h3>
-						<a href='https://twitter.com/drawinghands'>@drawinghands</a>
+						<a href='https://twitter.com/drawinghands'>drawing-hands</a>
 						</h3>
 					</div>
 				</div>
@@ -63,7 +63,10 @@
 
 			<div id='menuBar'>
 				<ul>
-					<a href=''><li>Paintings</li></a><a href=''><li>Panos</li></a><a href='https://twitter.com/drawinghands'><li>Twitter</li></a><a href=''><li>About</li></a>
+					<a href='http://visualjournali.st'><li>Journalism</li></a>
+					<a href='http://designasprocess.com'><li>Old site</li></a>
+					<a href='https://twitter.com/drawinghands'><li>Twitter</li></a>
+					<a href='https://www.linkedin.com/in/visualjournalist'><li>LinkedIn</li></a>
 				</ul>
 			</div>
 		</div>
@@ -95,10 +98,10 @@
 	
 			<div id='menuBar'>
 				<ul>
-					<a href=''><li>Paintings</li></a>
-					<a href=''><li>Panos</li></a>
+					<a href='http://visualjournali.st'><li>VisualJournali.st</li></a>
+					<a href='http://designasprocess.com'><li>Old portfolio</li></a>
 					<a href='https://twitter.com/drawinghands'><li>Twitter</li></a>
-					<a href=''><li>About</li></a>
+					<a href='https://www.linkedin.com/in/visualjournalist'><li>LinkedIn</li></a>
 				</ul>
 			</div>
 
@@ -110,8 +113,8 @@
 </div>
 <% include partials/template/scripts.ejs %>
 <script type="text/javascript">
-	$('#prev').prop('href', '<%= previousProject %>');
-	$('#next').prop('href', '<%= nextProject %>');
+	$('#prev').prop('href', '/<%= previousProject %>');
+	$('#next').prop('href', '/<%= nextProject %>');
 
 		//Dropdown navigation
 	$("#about h3" ).click(function() {

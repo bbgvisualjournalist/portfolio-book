@@ -54,15 +54,9 @@ p a, strong{
 	margin:0;
 	padding: 20px 5% 0 5%;
 }
-@media (max-width: 900px) {
-	#illustration {
-		background: #FFF; 
-		background-image: none !important;
-	}
-}
 #illustration h3{
 	position:fixed;
-	left:-64px;
+	left:-56px;
 	top:90px;
 	/* Safari */
 	-webkit-transform: rotate(-90deg);
@@ -154,16 +148,6 @@ p a, strong{
 	color:#CCC;
 	border-radius: 0 20px 20px 0;
 }
-/*
-#illustration.pano #swipe:before{
-	content: 'SCROLL';
-	position: absolute;
-    left: 30px;
-    font-size: .7em;
-    text-align: left;
-    font-weight: bold;
-}
-*/
 
 #about.pano{
 	width: 100%;
@@ -242,6 +226,18 @@ p a, strong{
 }
 
 
+@media (min-width: 400px) {
+	#prev div{
+		width: 30px;
+		height: 60px;
+	}
+	#next div{
+		width: 30px;
+		height: 60px;
+	}
+}
+
+
 
 @media (min-width: 500px) {
 	#about h1{
@@ -274,6 +270,10 @@ p a, strong{
 
 
 @media (min-width: 900px) {
+	#illustration {
+		background: #FFF; 
+		background-image: none !important;
+	}
 
 	#detail {
 		display: block;

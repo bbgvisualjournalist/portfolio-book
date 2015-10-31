@@ -130,14 +130,17 @@ router.get('/', function(req, res, next) {
 	var randomProjectNumber = Math.floor( (portfolioData.length/2) * Math.random()) + (portfolioData.length/2);
 	var projectData = portfolioData[Math.floor(randomProjectNumber)];
 
-	console.log(randomProjectNumber);
+	//console.log(randomProjectNumber);
 
 	featuredNumber = projectData[randomProjectNumber];
+	//console.log('featuredNumber: '+ projectData[randomProjectNumber]);
 
 	var previousProjectNumber;
 	var nextProjectNumber;
+	//console.log()
 
 	for (var k=0; k<portfolioData.length; k++){
+		console.log(portfolioData[k].projectnumber + " == " + featuredNumber);
 		if(portfolioData[k].projectnumber==featuredNumber){
 			projectData = portfolioData[k];
 
@@ -155,6 +158,11 @@ router.get('/', function(req, res, next) {
 			}
 		}
 	}
+	/*
+	console.log()
+	console.log(previousProjectNumber)
+	console.log(nextProjectNumber)
+	*/
 
 	projectData.descriptionSplit = splitParagraphs(projectData.description);
 
@@ -263,7 +271,7 @@ router.get('/portfolio/', function(req, res, next) {
 
 	res.render('portfolio', { 
 		data: data,
-		pageTitle: "Brian Williamson's portfolio",
+		pageTitle: "Brian Williamson’s portfolio",
 		portfolioData: portfolioData,
 		portfolioDescription: '',
 		featuredNumber: featuredNumber,
