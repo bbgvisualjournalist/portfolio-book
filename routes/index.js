@@ -47,7 +47,156 @@ function capitalizeFirstLetter(string) {
 
 
 /* GET home page. */
+router.get('/:number', function(req, res, next) {
+	var featuredNumber = req.params.number;
+
+	var data = global.site.sitewide;
+	var portfolioData = global.portfolio.sitewide;
+	var projectData;
+	var previousProjectNumber;
+	var nextProjectNumber;
+
+	for (var k=0; k<portfolioData.length; k++){
+		if(portfolioData[k].projectnumber==featuredNumber){
+			projectData = portfolioData[k];
+
+
+			//Define the previous project number;
+			if(k == 0){
+				previousProjectNumber = portfolioData[portfolioData.length - 1].projectnumber;
+			} else {
+				previousProjectNumber = portfolioData[k - 1].projectnumber;
+			}
+			//Define the next project number
+			if(k == portfolioData.length - 1){
+				nextProjectNumber = portfolioData[0].projectnumber;
+			}else{
+				nextProjectNumber = portfolioData[k + 1].projectnumber;
+			}
+		}
+	}
+
+	projectData.descriptionSplit = splitParagraphs(projectData.description);
+
+	var currentCategory = projectData.category;
+
+	var verticalImage = '';
+	if (projectData.verticalimage == 'TRUE'){
+		verticalImage = 'verticalImage';
+	}
+
+	var pageTitle = projectData.title;
+
+	var promos = [];
+	for (k=0; k<portfolioData.length; k++){
+		if(portfolioData[k].category==currentCategory&&portfolioData[k].projectnumber!=featuredNumber){
+			promos.push(portfolioData[k]);
+		}
+	}
+	var metaImage = data[0].url + '/images/' + projectData.imagebase + '.jpg';
+	var url = data[0].url + '/project/' + featuredNumber;
+	var metaDescription = firstParagraph(projectData.description)
+
+	/*description: splitParagraphs(data[0].biography)*/
+	res.render('illustration', {
+		data: data,
+		portfolioData: promos,
+		projectData: projectData,
+		pageTitle: pageTitle,
+		portfolioDescription: data[0][currentCategory],
+		featuredNumber: featuredNumber,
+		verticalImage: verticalImage,
+		category: 'showAll',
+		metaImage: metaImage,
+		metaDescription: metaDescription,
+		url: url,
+		loopLimit: 3,
+		nextProject: nextProjectNumber,
+		previousProject: previousProjectNumber,
+		description: data[0].biography
+	});
+})
 router.get('/', function(req, res, next) {
+
+	var featuredNumber ;
+
+	var data = global.site.sitewide;
+	var portfolioData = global.portfolio.sitewide;
+	var projectData;
+
+	//Select a random 'recent' project. Recent is defined as the most recent half of the portfolio.
+	//!!!Need to check that the project is public.
+	//var randomProjectNumber = Math.floor(portfolioData.length*Math.random());
+	var randomProjectNumber = Math.floor( (portfolioData.length/2) * Math.random()) + (portfolioData.length/2);
+	var projectData = portfolioData[Math.floor(randomProjectNumber)];
+
+	console.log(randomProjectNumber);
+
+	featuredNumber = projectData[randomProjectNumber];
+
+	var previousProjectNumber;
+	var nextProjectNumber;
+
+	for (var k=0; k<portfolioData.length; k++){
+		if(portfolioData[k].projectnumber==featuredNumber){
+			projectData = portfolioData[k];
+
+			//Define the previous project number;
+			if(k == 0){
+				previousProjectNumber = portfolioData[portfolioData.length - 1].projectnumber;
+			} else {
+				previousProjectNumber = portfolioData[k - 1].projectnumber;
+			}
+			//Define the next project number
+			if(k == portfolioData.length - 1){
+				nextProjectNumber = portfolioData[0].projectnumber;
+			}else{
+				nextProjectNumber = portfolioData[k + 1].projectnumber;
+			}
+		}
+	}
+
+	projectData.descriptionSplit = splitParagraphs(projectData.description);
+
+	var currentCategory = projectData.category;
+
+	var verticalImage = '';
+	if (projectData.verticalimage == 'TRUE'){
+		verticalImage = 'verticalImage';
+	}
+
+	var pageTitle = projectData.title;
+
+	var promos = [];
+	for (k=0; k<portfolioData.length; k++){
+		if(portfolioData[k].category==currentCategory&&portfolioData[k].projectnumber!=featuredNumber){
+			promos.push(portfolioData[k]);
+		}
+	}
+	var metaImage = data[0].url + '/images/' + projectData.imagebase + '.jpg';
+	var url = data[0].url + '/project/' + featuredNumber;
+	var metaDescription = firstParagraph(projectData.description)
+
+	/*description: splitParagraphs(data[0].biography)*/
+	res.render('illustration', {
+		data: data,
+		portfolioData: promos,
+		projectData: projectData,
+		pageTitle: pageTitle,
+		portfolioDescription: data[0][currentCategory],
+		featuredNumber: featuredNumber,
+		verticalImage: verticalImage,
+		category: 'showAll',
+		metaImage: metaImage,
+		metaDescription: metaDescription,
+		url: url,
+		loopLimit: 3,
+		nextProject: nextProjectNumber,
+		previousProject: previousProjectNumber,
+		description: data[0].biography
+	});
+
+	/*
 	var featuredNumber = 0;
 	if (req.query.number!=null){
 		featuredNumber = req.query.number;
@@ -59,12 +208,12 @@ router.get('/', function(req, res, next) {
 
 
 	//Select a random 'recent' project. Recent is defined as the most recent half of the portfolio.
-    //!!!Need to check that the project is public.
+	//!!!Need to check that the project is public.
 	//var randomProjectNumber = Math.floor(portfolioData.length*Math.random());
 	var randomProjectNumber = Math.floor( (portfolioData.length/2) * Math.random()) + (portfolioData.length/2);
 
 	var projectData = portfolioData[randomProjectNumber];
-    projectData.descriptionSplit = splitParagraphs(projectData.description);
+	projectData.descriptionSplit = splitParagraphs(projectData.description);
 	var currentCategory = projectData.category;
 
 	var verticalImage = '';
@@ -98,25 +247,8 @@ router.get('/', function(req, res, next) {
 		loopLimit: 6,
 		description: data[0].biography
 	});
+	*/
 	//description: createIntro(data[0].biography, data[0].mugshot)
-});
-
-
-/* GET about page. */
-router.get('/about', function(req, res, next) {
-	var data = global.site.sitewide;
-	var portfolioData = global.portfolio.sitewide;
-	var url = data[0].url + '/about/';
-
-
-	res.render('about', { 
-		data: data,
-		pageTitle: 'About',
-		portfolioData: portfolioData,
-		portfolioDescription: '',
-		url: url,
-		description: data[0].biography
-	});
 });
 
 
@@ -142,80 +274,6 @@ router.get('/portfolio/', function(req, res, next) {
 		description: data[0].biography
 	});
 });
-
-/* GET portfolio page. Show all. */
-router.get('/illustration/:number/', function(req, res, next) {
-    var featuredNumber = req.params.number;
-
-    var data = global.site.sitewide;
-    var portfolioData = global.portfolio.sitewide;
-    var projectData;
-    var previousProjectNumber;
-    var nextProjectNumber;
-
-    for (var k=0; k<portfolioData.length; k++){
-        if(portfolioData[k].projectnumber==featuredNumber){
-            projectData = portfolioData[k];
-
-
-            //Define the previous project number;
-            if(k == 0){
-                previousProjectNumber = portfolioData[portfolioData.length - 1].projectnumber;
-            } else {
-                previousProjectNumber = portfolioData[k - 1].projectnumber;
-            }
-            //Define the next project number
-            if(k == portfolioData.length - 1){
-                nextProjectNumber = portfolioData[0].projectnumber;
-            }else{
-                nextProjectNumber = portfolioData[k + 1].projectnumber;
-            }
-        }
-    }
-
-    projectData.descriptionSplit = splitParagraphs(projectData.description);
-
-    var currentCategory = projectData.category;
-
-    var verticalImage = '';
-    if (projectData.verticalimage == 'TRUE'){
-        verticalImage = 'verticalImage';
-    }
-
-    var pageTitle = projectData.title;
-
-    var promos = [];
-    for (k=0; k<portfolioData.length; k++){
-        if(portfolioData[k].category==currentCategory&&portfolioData[k].projectnumber!=featuredNumber){
-            promos.push(portfolioData[k]);
-        }
-    }
-    var metaImage = data[0].url + '/images/' + projectData.imagebase + '.jpg';
-    var url = data[0].url + '/project/' + featuredNumber;
-    var metaDescription = firstParagraph(projectData.description)
-
-    /*description: splitParagraphs(data[0].biography)*/
-    res.render('illustration', {
-        data: data,
-        portfolioData: promos,
-        projectData: projectData,
-        pageTitle: pageTitle,
-        portfolioDescription: data[0][currentCategory],
-        featuredNumber: featuredNumber,
-        verticalImage: verticalImage,
-        category: 'showAll',
-        metaImage: metaImage,
-        metaDescription: metaDescription,
-        url: url,
-        loopLimit: 3,
-        nextProject: nextProjectNumber,
-        previousProject: previousProjectNumber,
-        description: data[0][currentCategory]
-    });
-});
-
-
-
 
 
 /* GET blog list. */

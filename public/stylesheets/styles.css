@@ -3,6 +3,7 @@ body{
 	padding:0;
 	margin:0;
 	font-style: 100%;
+	background-color: #FFF;
 }
 a{
 	color: #900;
@@ -15,7 +16,6 @@ p a, strong{
 #container{width:100%;margin:0;padding:0;}
 #illustration{
 	background-color: #FFF;
-	/*background: url(/images/<%= projectData.imagebase %>.jpg) no-repeat center center / cover;*/
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
@@ -23,7 +23,6 @@ p a, strong{
 	height: auto;
 }
 #illustration.square{
-	/*background: url(/images/<%= projectData.imagebase %>.jpg) no-repeat center center / contain;*/
 	background-size: contain;
 }
 #illustration.bottom{
@@ -144,15 +143,18 @@ p a, strong{
 	margin:0;
 }
 #illustration.pano #swipe{
-	background: url(../images/arrow_rightHover.png) no-repeat center right / 30px 60px;
-	width: 30px;
-	height: 60px;
+	background: rgba(10, 10, 10, .9) url(../images/arrow_leftHover.png) no-repeat center right / 20px 40px;
+	width: auto;
+	height: 20px;
 	position: absolute;
-	bottom:-20px;
+	bottom:20px;
 	left:0px;
 	z-index: 9999;
-	padding: 45px 0 0 0;
+	padding: 5px 30px 5px 10px;
+	color:#CCC;
+	border-radius: 0 20px 20px 0;
 }
+/*
 #illustration.pano #swipe:before{
 	content: 'SCROLL';
 	position: absolute;
@@ -161,6 +163,7 @@ p a, strong{
     text-align: left;
     font-weight: bold;
 }
+*/
 
 #about.pano{
 	width: 100%;
@@ -369,7 +372,7 @@ p a, strong{
 	}
 
 	#menuBar{
-		width:50.25%;
+		width:50.1%;
 		bottom:0;
 		right:0;
 	}
