@@ -163,6 +163,8 @@ router.get('/', function(req, res, next) {
 	console.log(previousProjectNumber)
 	console.log(nextProjectNumber)
 	*/
+	previousProjectNumber = 1010;
+	nextProjectNumber = 1011;
 
 	projectData.descriptionSplit = splitParagraphs(projectData.description);
 
