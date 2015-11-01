@@ -119,16 +119,17 @@
 
 
 	<% if (projectData.imageshape=='pano') {%>
-		console.log('pano auto scroll')
-
-		$(document).ready( function() {
-			console.log('pano auto scroll')
+		function scrollPano(){
 			var imageWidthTest = $("#illustration img").width();
 
 			var percent = <%=projectData.panostartpercentage %>
 			var scrollPercentage = imageWidthTest * percent;
 
 			$('#illustration').animate({scrollLeft: scrollPercentage}, 1000);
+		}
+
+		$(window).load( function() {
+			scrollPano();
 		});
 
 	<% } %>
