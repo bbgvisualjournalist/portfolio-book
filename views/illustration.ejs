@@ -68,21 +68,10 @@
 
 		<div id="illustration" class='pano' style='box-shadow: 0 0 5px #333;'>
 			<img src='/images/<%= projectData.imagebase %>.jpg' style=''/>
-			<div id='swipe'>Swipe to explore this panoramic image</div>
 		</div>
+		<div id='swipe' style=''>Swipe to explore this panoramic image</div>
+
 		<div id="about" class='pano'>
-			<!--
-			<div class='menuBox'>
-				<p style='max-width: 700px; margin: 0 auto;'><img src="<%- data[0].mugshot %> " style="float: left; margin-right: 15px">
-					<%- description %>
-				</p>
-			</div>
-			<div class='label'>
-				<h3 <% if (projectData.detail==''){ %>class="noDetail"<% } %>>
-					drawing-hands<br/><span style='font-weight:normal; font-size: .8em;'><%= projectData.category %></span>
-				</h3>
-			</div>
-		-->
 			<h1 class='balance-text'><%= projectData.title %></h1>
 			<h2 class='summary balance-text'><%= projectData.summary %></h2>
 			<div class="description <% if ( projectData.singlecolumn == true){ %> singleColumn<% } %>">

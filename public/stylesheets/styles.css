@@ -61,33 +61,7 @@ p a, strong{
 		background-image: none !important;
 	}
 }
-/*
-#illustration h3{
-	position:fixed;
-	left:-56px;
-	top:90px;
-	-webkit-transform: rotate(-90deg);
-	-moz-transform: rotate(-90deg);
-	-ms-transform: rotate(-90deg);
-	-o-transform: rotate(-90deg);
 
-	text-align: right;
-	background-color: #900;
-	margin:0 auto;
-	padding:5px 15px 7px 15px;
-	display: inline-block;
-	color:#FFF;
-	font-size: .8em;
-	text-transform: uppercase;
-}
-/*
-#illustration h3 a{
-	margin:0;
-	color:#FFF;
-	padding:0;
-	text-decoration: none;
-}
-*/
 #about h3{
 	display: none;
 }
@@ -162,28 +136,18 @@ p a, strong{
 	padding:0;
 	margin:0;
 }
-#illustration.pano #swipe{
+#swipe{
 	background: rgba(10, 10, 10, .9) url(../images/arrow_leftHover.png) no-repeat center right / 20px 40px;
 	width: auto;
 	height: 20px;
-	position: absolute;
-	bottom:20px;
-	left:0px;
+	position: relative;
+	display: inline-block;
+	margin-top: -20px;
 	z-index: 9999;
 	padding: 5px 30px 5px 10px;
 	color:#CCC;
 	border-radius: 0 20px 20px 0;
 }
-/*
-#illustration.pano #swipe:before{
-	content: 'SCROLL';
-	position: absolute;
-    left: 30px;
-    font-size: .7em;
-    text-align: left;
-    font-weight: bold;
-}
-*/
 
 #about.pano{
 	width: 100%;
@@ -417,13 +381,6 @@ p a, strong{
 	#about h1{
 		font-size: 3em;
 	}
-	/*
-	#about.pano .description{
-		max-width: 700px;
-		-webkit-column-count: 2;
-		-moz-column-count: 2;
-		column-count: 2;
-	}*/
 }
 @media (min-width: 1400px) {
 	#about .description{
@@ -432,9 +389,6 @@ p a, strong{
 		column-count: 2;
 	}
 }
-
-
-
 
 
 
