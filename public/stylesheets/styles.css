@@ -40,7 +40,7 @@ p a, strong{
 #illustration.fit{
 	background-size: contain;
 }
-
+/*
 #illustration .label{
 	text-align: center;
 	display: block;
@@ -48,6 +48,7 @@ p a, strong{
 	position: absolute;
 	top:0;
 }
+*/
 #illustration img{
 	width: 90%;
 	height: auto;
@@ -60,21 +61,17 @@ p a, strong{
 		background-image: none !important;
 	}
 }
+/*
 #illustration h3{
 	position:fixed;
 	left:-56px;
 	top:90px;
-	/* Safari */
 	-webkit-transform: rotate(-90deg);
-	/* Firefox */
 	-moz-transform: rotate(-90deg);
-	/* IE */
 	-ms-transform: rotate(-90deg);
-	/* Opera */
 	-o-transform: rotate(-90deg);
 
 	text-align: right;
-	/*background-color: #333;*/
 	background-color: #900;
 	margin:0 auto;
 	padding:5px 15px 7px 15px;
@@ -83,18 +80,41 @@ p a, strong{
 	font-size: .8em;
 	text-transform: uppercase;
 }
+/*
 #illustration h3 a{
 	margin:0;
 	color:#FFF;
 	padding:0;
 	text-decoration: none;
 }
+*/
 #about h3{
 	display: none;
 }
 #detail {
 	display: none;
 }
+
+
+
+#header .label{
+	text-align: center;
+}
+#header h3{
+	display: inline-block;
+	text-align: center;
+	margin:0 auto 0 auto;
+	padding:7px 10px 7px 10px;
+	/*background-color: rgba(10, 10, 10, .7);*/
+	background-color: #900;
+	border-radius: 0 0 3px 3px;
+	color:#FFF;
+	text-transform: uppercase;
+	font-size: .8em;
+}
+
+
+
 #about h1{
 	text-align: center;
 	font-size: 2em;
@@ -243,6 +263,7 @@ p a, strong{
 
 
 
+
 @media (min-width: 500px) {
 	#about h1{
 		font-size: 2.5em;
@@ -360,10 +381,11 @@ p a, strong{
 	}
 	#about.pano .description{
 		width: 80%;
+		max-width: 700px;
 		margin:25px auto 100px auto;
-		-webkit-column-count: 3;
-		-moz-column-count: 3;
-		column-count: 3;
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
 	}
 
 
@@ -395,11 +417,13 @@ p a, strong{
 	#about h1{
 		font-size: 3em;
 	}
+	/*
 	#about.pano .description{
-		-webkit-column-count: 4;
-		-moz-column-count: 4;
-		column-count: 4;
-	}
+		max-width: 700px;
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+	}*/
 }
 @media (min-width: 1400px) {
 	#about .description{
@@ -408,3 +432,34 @@ p a, strong{
 		column-count: 2;
 	}
 }
+
+
+
+
+
+
+.menuBox {
+	width: 100%;
+	height: auto;
+	background: #FFF;
+	box-shadow: inset -3px -3px 10px #999;
+	display: none;
+}
+.menuBox p {
+	padding:20px 20px 30px 20px; 
+	margin:0;
+	font-size: .8em;
+	line-height: 1.5em;
+	color: #666;
+}	
+@media (min-width: 900px) {
+	#header.pano{
+		display: none;
+	}
+}
+@media (max-width: 900px) {
+	#about .menuBox{
+		display: none !important;
+	}
+}
+
