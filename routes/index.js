@@ -118,8 +118,6 @@ router.get('/:number', function(req, res, next) {
 })
 router.get('/', function(req, res, next) {
 
-	var featuredNumber ;
-
 	var data = global.site.sitewide;
 	var portfolioData = global.portfolio.sitewide;
 	var projectData;
@@ -127,44 +125,11 @@ router.get('/', function(req, res, next) {
 	//Select a random 'recent' project. Recent is defined as the most recent half of the portfolio.
 	//!!!Need to check that the project is public.
 	//var randomProjectNumber = Math.floor(portfolioData.length*Math.random());
-	var randomProjectNumber = Math.floor( (portfolioData.length/2) * Math.random()) + (portfolioData.length/2);
-	var projectData = portfolioData[Math.floor(randomProjectNumber)];
+	//var randomProjectNumber = Math.floor( (portfolioData.length/2) * Math.random()) + (portfolioData.length/2);
+	var projectData = portfolioData[0];
 
-	//console.log(randomProjectNumber);
-
-	featuredNumber = projectData[randomProjectNumber];
-	//console.log('featuredNumber: '+ projectData[randomProjectNumber]);
-
-	var previousProjectNumber;
-	var nextProjectNumber;
-	//console.log()
-
-	for (var k=0; k<portfolioData.length; k++){
-		console.log(portfolioData[k].projectnumber + " == " + featuredNumber);
-		if(portfolioData[k].projectnumber==featuredNumber){
-			projectData = portfolioData[k];
-
-			//Define the previous project number;
-			if(k == 0){
-				previousProjectNumber = portfolioData[portfolioData.length - 1].projectnumber;
-			} else {
-				previousProjectNumber = portfolioData[k - 1].projectnumber;
-			}
-			//Define the next project number
-			if(k == portfolioData.length - 1){
-				nextProjectNumber = portfolioData[0].projectnumber;
-			}else{
-				nextProjectNumber = portfolioData[k + 1].projectnumber;
-			}
-		}
-	}
-	/*
-	console.log()
-	console.log(previousProjectNumber)
-	console.log(nextProjectNumber)
-	*/
-	previousProjectNumber = 1001;
-	nextProjectNumber = 1002;
+	var previousProjectNumber = 1010;
+	var nextProjectNumber = 1001;
 
 	projectData.descriptionSplit = splitParagraphs(projectData.description);
 
@@ -177,24 +142,15 @@ router.get('/', function(req, res, next) {
 
 	var pageTitle = projectData.title;
 
-	var promos = [];
-	for (k=0; k<portfolioData.length; k++){
-		if(portfolioData[k].category==currentCategory&&portfolioData[k].projectnumber!=featuredNumber){
-			promos.push(portfolioData[k]);
-		}
-	}
 	var metaImage = data[0].url + '/images/' + projectData.imagebase + '.jpg';
-	var url = data[0].url + '/project/' + featuredNumber;
+	var url = data[0].url + '/';
 	var metaDescription = firstParagraph(projectData.description)
 
-	/*description: splitParagraphs(data[0].biography)*/
 	res.render('illustration', {
 		data: data,
-		portfolioData: promos,
 		projectData: projectData,
 		pageTitle: pageTitle,
 		portfolioDescription: data[0][currentCategory],
-		featuredNumber: featuredNumber,
 		verticalImage: verticalImage,
 		category: 'showAll',
 		metaImage: metaImage,
@@ -205,60 +161,6 @@ router.get('/', function(req, res, next) {
 		previousProject: previousProjectNumber,
 		description: data[0].biography
 	});
-
-	/*
-	var featuredNumber = 0;
-	if (req.query.number!=null){
-		featuredNumber = req.query.number;
-	};
-
-
-	var data = global.site.sitewide;
-	var portfolioData = global.portfolio.sitewide;
-
-
-	//Select a random 'recent' project. Recent is defined as the most recent half of the portfolio.
-	//!!!Need to check that the project is public.
-	//var randomProjectNumber = Math.floor(portfolioData.length*Math.random());
-	var randomProjectNumber = Math.floor( (portfolioData.length/2) * Math.random()) + (portfolioData.length/2);
-
-	var projectData = portfolioData[randomProjectNumber];
-	projectData.descriptionSplit = splitParagraphs(projectData.description);
-	var currentCategory = projectData.category;
-
-	var verticalImage = '';
-	if (projectData.verticalimage == 'TRUE'){
-		verticalImage = 'verticalImage';
-	}
-
-
-	var promos = [];
-	for (k=0; k<portfolioData.length; k++){
-		if(portfolioData[k].projectnumber!=portfolioData[randomProjectNumber].projectnumber){
-			promos.push(portfolioData[k]);
-		}
-	}
-
-	var url = data[0].url;
-
-	//description: splitParagraphs(data[0].biography)
-
-	res.render('index', { 
-		data: data,
-		pageTitle: "Brian Williamson's portfolio",
-		portfolioData: promos,
-		portfolioDescription: '',
-		projectData: projectData,
-		verticalImage: verticalImage,
-		featuredNumber: featuredNumber,
-		category: 'showAll',
-		metaImage: data[0].metaimage,
-		url: url,
-		loopLimit: 6,
-		description: data[0].biography
-	});
-	*/
-	//description: createIntro(data[0].biography, data[0].mugshot)
 });
 
 
