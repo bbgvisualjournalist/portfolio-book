@@ -129,18 +129,25 @@ p a, strong{
 	margin:0;
 }
 #swipe{
-	background: rgba(10, 10, 10, .9) url(../images/arrow_leftHover.png) no-repeat center right / 20px 40px;
+	background: rgba(10, 10, 10, .9) url(../images/arrow_scroll.png) no-repeat center left / 40px 40px;
 	width: auto;
 	height: 20px;
 	position: relative;
 	display: inline-block;
-	margin-top: -20px;
+	margin-top: -15px;
 	z-index: 9999;
-	padding: 5px 30px 5px 10px;
+	padding: 5px 15px 5px 48px;
 	color:#CCC;
 	border-radius: 0 20px 20px 0;
 }
 
+.hideMobile{display: none;}
+
+@media (min-width: 500px) {
+	.hideMobile{
+		display: inline-block;
+	}
+}
 #about.pano{
 	width: 100%;
 }
@@ -194,7 +201,8 @@ p a, strong{
 	box-shadow: 2px 0px 3px #333;
 }
 #menuBar ul {
-	margin:0;
+	max-width: 700px;
+	margin:0 auto;
 	padding:0;
 	background: #FFF;
 }
@@ -383,7 +391,10 @@ p a, strong{
 }
 
 
-
+.label h3{
+	cursor: pointer; 
+	cursor: hand;
+}
 .menuBox {
 	width: 100%;
 	height: auto;

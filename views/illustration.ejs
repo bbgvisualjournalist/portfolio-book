@@ -25,7 +25,7 @@
 		<div id="illustration" class='<%= projectData.imageshape %>' style='background-image: url(/images/<%= projectData.imagebase %>.jpg);'>
 				<div class='gradient'>
 				</div>
-			<img src='/images/<%= projectData.imagebase %>.jpg'/>
+			<img src='/images/<% if (projectData.imagemobilealt==''){ %><%= projectData.imagebase %><%}else{ %><%= projectData.imagemobilealt %><% } %>.jpg'/>
 		</div>
 
 		<div id="about">
@@ -54,10 +54,10 @@
 
 			<div id='menuBar'>
 				<ul>
-					<a href='http://visualjournali.st'><li>Journalism</li></a>
-					<a href='http://designasprocess.com'><li>Old site</li></a>
+					<a href=''><li>Panos</li></a>
+					<a href=''><li>Editorial</li></a>
+					<a href=''><li>KidLit</li></a>
 					<a href='https://twitter.com/drawinghands'><li>Twitter</li></a>
-					<a href='https://www.linkedin.com/in/visualjournalist'><li>LinkedIn</li></a>
 				</ul>
 			</div>
 		</div>
@@ -69,7 +69,7 @@
 		<div id="illustration" class='pano' style='box-shadow: 0 0 5px #333;'>
 			<img src='/images/<%= projectData.imagebase %>.jpg' style=''/>
 		</div>
-		<div id='swipe' style=''>Swipe to explore this panoramic image</div>
+		<div id='swipe' style=''>Swipe to explore <span class='hideMobile'>this panoramic image</span></div>
 
 		<div id="about" class='pano'>
 			<h1 class='balance-text'><%= projectData.title %></h1>
@@ -80,10 +80,10 @@
 	
 			<div id='menuBar'>
 				<ul>
-					<a href='http://visualjournali.st'><li>Journalism</li></a>
-					<a href='http://designasprocess.com'><li>Old portfolio</li></a>
+					<a href=''><li>Panos</li></a>
+					<a href=''><li>Editorial</li></a>
+					<a href=''><li>KidLit</li></a>
 					<a href='https://twitter.com/drawinghands'><li>Twitter</li></a>
-					<a href='https://www.linkedin.com/in/visualjournalist'><li>LinkedIn</li></a>
 				</ul>
 			</div>
 
