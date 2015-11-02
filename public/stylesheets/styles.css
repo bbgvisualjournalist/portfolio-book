@@ -23,7 +23,7 @@ p a, strong{
 	height: auto;
 }
 #illustration.square{
-	background-size: contain;
+	background-size: 80%;
 }
 #illustration.bottom{
 	background-position: center bottom;
@@ -40,15 +40,7 @@ p a, strong{
 #illustration.fit{
 	background-size: contain;
 }
-/*
-#illustration .label{
-	text-align: center;
-	display: block;
-	margin: 0 auto;
-	position: absolute;
-	top:0;
-}
-*/
+
 #illustration img{
 	width: 80%;
 	height: auto;
