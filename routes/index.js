@@ -126,10 +126,18 @@ router.get('/', function(req, res, next) {
 	//!!!Need to check that the project is public.
 	//var randomProjectNumber = Math.floor(portfolioData.length*Math.random());
 	//var randomProjectNumber = Math.floor( (portfolioData.length/2) * Math.random()) + (portfolioData.length/2);
-	var projectData = portfolioData[0];
 
-	var previousProjectNumber = 1010;
-	var nextProjectNumber = 1001;
+	var grid = ""
+
+	/*for (var i = portfolioData.length - 1; i >= 0; i--) {*/
+	for (var i = 0; i< portfolioData.length; i++) {
+		grid +="<a href='/"+ portfolioData[i].projectnumber +"'><div class='square' style='background-image: url(/images/square_" + portfolioData[i].imagebase + ".jpg'></div></a>";
+	};
+
+	var projectData = portfolioData[1];
+
+	var previousProjectNumber = 1001;
+	var nextProjectNumber = 1002;
 
 	projectData.descriptionSplit = splitParagraphs(projectData.description);
 
@@ -146,7 +154,7 @@ router.get('/', function(req, res, next) {
 	var url = data[0].url + '/';
 	var metaDescription = firstParagraph(projectData.description)
 
-	res.render('illustration', {
+	res.render('index', {
 		data: data,
 		projectData: projectData,
 		pageTitle: pageTitle,
@@ -159,6 +167,7 @@ router.get('/', function(req, res, next) {
 		loopLimit: 3,
 		nextProject: nextProjectNumber,
 		previousProject: previousProjectNumber,
+		grid: grid,
 		description: data[0].biography
 	});
 });

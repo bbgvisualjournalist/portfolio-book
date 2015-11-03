@@ -1,3 +1,5 @@
+html, body{height: 100%; padding:0; margin:0;}
+
 body{
 	font-family: sans-serif;
 	padding:0;
@@ -13,7 +15,12 @@ p a, strong{
 	font-weight: 600;
 }
 
-#container{width:100%;margin:0;padding:0;}
+#container{
+	width:100%;
+	height: 100%;
+	margin:0;
+	padding:0;
+}
 #illustration{
 	background-color: #FFF;
 	background-repeat: no-repeat;
@@ -296,10 +303,12 @@ p a, strong{
 				rgba(10, 10, 10, .3),
 				rgba(10, 10, 10, 0) 10%
 		);
-		width: 100%;
+		position: absolute;
+		width: 49.8%;
 		height:100%;
 		padding:0;
 		margin:0;
+		pointer-events: none;
 	}
 	#illustration h3{
 		display: none;

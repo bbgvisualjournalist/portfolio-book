@@ -2,85 +2,128 @@
 <html>
 	<head>
 		<% include partials/template/head.ejs %>
+<style type="text/css">
+.red {background-color: #900;}
+.orange {background-color: orange;}
+.green {background-color: green;}
+.blue {background-color: blue;}
+
+.square{
+	width: 80px; 
+	height: 80px; 
+	padding:0;
+	margin:0; 
+	display: block; 
+	/*background-image:url(/images/square_alphabet.jpg);*/
+	background-size:cover;
+	background-repeat: no-repeat;
+	background-position: center center; 
+}
+
+@media (min-width: 400px) {
+	.square{
+		width: 33.33%; 
+		height: 100px; 
+		float:left;
+	}
+}
+
+@media (min-width: 500px) {
+	.square{
+		height: 125px;
+	}
+}
+
+@media (min-width: 700px) {
+	.square{
+		height: 200px;
+	}
+}
+
+@media (min-width: 900px) {
+	.square{
+		width: 33.3%; 
+		height: 25%;
+	}
+	/*#container{width: 50%; margin:0 auto 0 0; float: left; height: 100%;}*/
+}
+@media (min-width: 1200px){
+}
+
+</style>
 	</head>
 	<body>
-		<% include partials/template/menu.ejs %>
-
-		<% include partials/template/header.ejs %>
-
-		<div id='navigation'>
-		</div>
 
 		<div id='container'>
-
-			<div id='sharingLinks'>
-				<% include partials/template/sharing.ejs %>
+			<div id='header' <%if (projectData.imageshape!='pano'){ %> class='pano' <% } %> >
+				<div class='menuBox'>
+					<p style='max-width: 700px; margin: 0 auto;'><img src="<%- data[0].mugshot %> " style="float: left; margin-right: 15px">
+							<%- description %>
+					</p>
+				</div>
+				<div class='label'>
+					<h3>
+						drawing-hands<br/><span style='font-weight:normal; font-size: .8em;'><%= projectData.category %></span>
+					</h3>
+				</div>
 			</div>
 
 
-
-			<div class='entry' id='projectEntry'>
-				<div class='floatLeft category <%= projectData.category %>'>
-				<h3 class='category'><a href='/portfolio/'>Featured project</a></h3>
+			<div id="illustration">
+				<div class='gradient'>
 				</div>
-				<div class='floatRight'><h3 class='date'><%= projectData.date %> %></h3></div>
-				<div class='clearMe'></div>
-				<h2 class='headline'><%= projectData.title %></h2>
+				<%- grid %>
+			</div>
 
+			<div id="about">
+				<div class='menuBox'>
+					<p><img src="<%- data[0].mugshot %> " style="float: left; margin-right: 15px">
+							<%- description %>
+					</p>
+				</div>
+				<div class='label'>
+					<h3 <% if (projectData.detail==''){ %>class="noDetail"<% } %>>
+						drawing-hands<br/><span style='font-weight:normal; font-size: .8em;'><%= projectData.category %></span>
+					</h3>
+				</div>
 
-				<% if (projectData.videoembed!=""){ %>
-					<iframe width="640" height="360" src="<%= projectData.videoembed %>" frameborder="0" allowfullscreen></iframe>
-					<div class='credit'><%= projectData.employer %></div>
-				<% } else { %>
-					<div class='<%= verticalImage %>'>
-					<a href='<%= projectData.projectlink %>' target='_blank'><img src='/images/<%= projectData.imagebase %>.jpg' <% if (projectData.alttag!=""){ %> alt = '<%= projectData.alttag %>'<% } %>/></a>
-					<div class='credit' <% if(verticalImage=='verticalImage'){%>style='padding-right:0;'<%}%> ><%= projectData.employer %></div>
+				<% if (projectData.detail){ %>
+					<div id='detail' >
+						<img src='/images/<%= projectData.detail %>' />
 					</div>
 				<% } %>
 
-
-				<div class='description'><%- projectData.descriptionSplit %></div>
-
-
-				<ul class='listView'>
-				<% if (projectData.projectlink!=""){ %>
-					<a href='<%= projectData.projectlink %>'><li>View the project</li></a>
-				<% } %>
-				<% if (projectData.videolink!=""){ %>
-					<a href='<%= projectData.videolink %>'><li>Watch a video</li></a>
-				<% } %>
-				<% if (projectData.githublink!=""){ %>
-					<a href='<%= projectData.githublink %>'><li>Check out the code</li></a>
-				<% } %>
-				<% if (projectData.bloglink!=""){ %>
-					<a href='<%= projectData.bloglink %>'><li>Read more</li></a>
-				<% } %>
-				</ul>
-				<div class='clearMe'></div>
-
-			</div>
-
-
-			<div class='entry' style='margin-bottom: 20px;'>
-				<div class='floatLeft category <%= projectData.category %>'>
-				<h3 class='category'><a href='/portfolio/'>Recent projects</a></h3>
+				<h1 class='balance-text'><%= projectData.title %></h1>
+				<h2 class='summary balance-text'><%= projectData.summary %></h2>
+				<div class="description<% if ( projectData.singlecolumn == "TRUE"){ %> singleColumn<% } %>">
+					<%- projectData.descriptionSplit %>
 				</div>
-				<div class='floatRight'><h3 class='date'><a href='/portfolio/'>View full portfolio</a></h3></div>
-			</div>
 
-
-			<div id='containerGrid'>
-				<div class='inset'>
-
-				<% include partials/template/loop.ejs %>
-
+				<div id='menuBar'>
+					<ul>
+						<a href='/'><li>Home</li></a>
+						<a href=''><li>Portfolio</li></a>
+						<a href=''><li>About</li></a>
+						<a href='https://twitter.com/drawinghands'><li>Twitter</li></a>
+					</ul>
 				</div>
-			</div><!-- containerGrid -->
-
-
+			</div>
+			<a href='' id='prev'><div></div></a>
+			<a href='' id='next'><div></div></a>
 		</div><!-- container -->
-		<% include partials/template/footer.ejs %>
-
 		<% include partials/template/scripts.ejs %>
+		<script type="text/javascript">
+			$('#prev').prop('href', '/<%= previousProject %>');
+			$('#next').prop('href', '/<%= nextProject %>');
+
+			//Dropdown navigation
+			$("#about h3" ).click(function() {
+				$( "#about .menuBox" ).slideToggle("drop");
+			});
+			$("#header h3" ).click(function() {
+				$( "#header .menuBox" ).slideToggle("drop");
+			});
+
+		</script>
 	</body>
 </html>
