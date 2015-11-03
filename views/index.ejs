@@ -9,8 +9,10 @@
 .blue {background-color: blue;}
 
 .square{
+	/*
 	width: 80px; 
 	height: 80px; 
+	*/
 	padding:0;
 	margin:0; 
 	display: block; 
@@ -19,24 +21,33 @@
 	background-repeat: no-repeat;
 	background-position: center center; 
 }
-
+.square img{
+	width: 80px;
+	height: auto;
+}
 @media (min-width: 350px) {
 	.square{
 		width: 33.33%; 
-		height: 100px; 
+		/*height: 100px; */
+		height: auto; 
 		float:left;
 	}
+	.square img{
+		width: 100%;
+		height: auto;
+	}
+
 }
 
 @media (min-width: 500px) {
 	.square{
-		height: 125px;
+		/*height: 125px;*/
 	}
 }
 
 @media (min-width: 700px) {
 	.square{
-		height: 200px;
+		/*height: 200px;*/
 	}
 }
 

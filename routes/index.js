@@ -131,7 +131,7 @@ router.get('/', function(req, res, next) {
 
 	/*for (var i = portfolioData.length - 1; i >= 0; i--) {*/
 	for (var i = 0; i< portfolioData.length; i++) {
-		grid +="<a href='/"+ portfolioData[i].projectnumber +"'><div class='square' style='background-image: url(/images/square_" + portfolioData[i].imagebase + ".jpg)'></div></a>";
+		grid +="<a href='/"+ portfolioData[i].projectnumber +"'><div class='square' style='background-image: url(/images/square_" + portfolioData[i].imagebase + ".jpg)'><img src='/images/square_transparent.png'/></div></a>";
 	};
 
 	var projectData = portfolioData[1];
