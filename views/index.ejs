@@ -16,7 +16,7 @@
 					</p>
 				</div>
 				<div class='label'>
-					<h3>drawing hands<br/><span style='font-weight:normal; font-size: .8em;'><%= projectData.category %></span>
+					<h3>Brian Williamson<br/><span style='font-weight:normal; font-size: .8em;'>portfolio</span>
 					</h3>
 				</div>
 			</div>
@@ -36,7 +36,7 @@
 				</div>
 				<div class='label'>
 					<h3 <% if (projectData.detail==''){ %>class="noDetail"<% } %>>
-						drawing-hands<br/><span style='font-weight:normal; font-size: .8em;'><%= projectData.category %></span>
+						Brian Williamson<br/><span style='font-weight:normal; font-size: .8em;'>portfolio</span>
 					</h3>
 				</div>
 
@@ -46,10 +46,10 @@
 					</div>
 				<% } %>
 
-				<h1 class=''><%= projectData.title %></h1>
-				<h2 class='summary balance-text'><%= projectData.summary %></h2>
+				<h1 class=''><%= introTitle %></h1>
+				<h2 class='summary balance-text'><%- introSummary %></h2>
 				<div class="description<% if ( projectData.singlecolumn == "TRUE"){ %> singleColumn<% } %>">
-					<%- projectData.descriptionSplit %>
+					<%- intro %>
 				</div>
 
 				<div id='menuBar'>

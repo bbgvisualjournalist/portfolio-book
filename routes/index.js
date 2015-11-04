@@ -164,6 +164,9 @@ router.get('/', function(req, res, next) {
 		nextProject: nextProjectNumber,
 		previousProject: previousProjectNumber,
 		grid: grid,
+		intro: splitParagraphs(data[0].introduction),
+		introTitle: data[0].introtitle,
+		introSummary: data[0].introsummary,
 		description: data[0].biography
 	});
 });
