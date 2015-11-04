@@ -4,6 +4,11 @@
 		<% include partials/template/head.ejs %>
 		<style type="text/css">
 		#header{margin-bottom: 20px;}
+		#prev, #next{display: none;}
+
+		@media (min-width: 900px) {
+			#next{display: block;}
+		}
 		</style>
 	</head>
 	<body>
