@@ -62,7 +62,9 @@ p a, strong{
 		background-image: none !important;
 	}
 }
-
+#about{
+	padding-bottom: 50px;
+}
 #about h3{
 	display: none;
 }
