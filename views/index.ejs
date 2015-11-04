@@ -2,67 +2,6 @@
 <html>
 	<head>
 		<% include partials/template/head.ejs %>
-<style type="text/css">
-.red {background-color: #900;}
-.orange {background-color: orange;}
-.green {background-color: green;}
-.blue {background-color: blue;}
-
-.square{
-	/*
-	width: 80px; 
-	height: 80px; 
-	*/
-	padding:0;
-	margin:0; 
-	display: block; 
-	/*background-image:url(/images/square_alphabet.jpg);*/
-	background-size:cover;
-	background-repeat: no-repeat;
-	background-position: center center; 
-}
-.square img{
-	width: 80px;
-	height: auto;
-}
-@media (min-width: 350px) {
-	.square{
-		width: 33.33%; 
-		/*height: 100px; */
-		height: auto; 
-		float:left;
-	}
-	.square img{
-		width: 100%;
-		height: auto;
-	}
-
-}
-
-@media (min-width: 500px) {
-	.square{
-		/*height: 125px;*/
-	}
-}
-
-@media (min-width: 700px) {
-	.square{
-		width: 25%;
-		/*height: 200px;*/
-	}
-}
-
-@media (min-width: 900px) {
-	.square{
-		width: 33.3%; 
-		height: 25%;
-	}
-	/*#container{width: 50%; margin:0 auto 0 0; float: left; height: 100%;}*/
-}
-@media (min-width: 1200px){
-}
-
-</style>
 	</head>
 	<body>
 
@@ -74,7 +13,7 @@
 					</p>
 				</div>
 				<div class='label'>
-					<h3>drawing-hands<br/><span style='font-weight:normal; font-size: .8em;'><%= projectData.category %></span>
+					<h3>drawing hands<br/><span style='font-weight:normal; font-size: .8em;'><%= projectData.category %></span>
 					</h3>
 				</div>
 			</div>

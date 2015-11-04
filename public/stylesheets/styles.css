@@ -143,8 +143,8 @@ p a, strong{
 	height: 20px;
 	position: relative;
 	display: inline-block;
-	margin-top: -15px;
-	z-index: 9999;
+	margin-top: -20px;
+	z-index: 9998;
 	padding: 5px 15px 5px 48px;
 	color:#CCC;
 	border-radius: 0 20px 20px 0;
@@ -208,6 +208,7 @@ p a, strong{
 	margin:0;
 	box-shadow: 2px 0px 3px #333;
 	background-color: #FFF;
+	z-index: 9999;
 }
 #menuBar ul {
 	max-width: 700px;
@@ -233,6 +234,49 @@ p a, strong{
 #menuBar ul a:last-of-type li{
 	border-right: none;
 }
+
+
+
+/* grid of squares styles */
+.square{
+	padding:0;
+	margin:0; 
+	display: block; 
+	background-size:cover;
+	background-repeat: no-repeat;
+	background-position: center center; 
+}
+.square img{
+	width: 80px;
+	height: auto;
+}
+@media (min-width: 350px) {
+	.square{
+		width: 33.33%; 
+		height: auto; 
+		float:left;
+	}
+	.square img{
+		width: 100%;
+		height: auto;
+	}
+}
+
+@media (min-width: 700px) {
+	.square{
+		width: 25%;
+	}
+}
+
+@media (min-width: 900px) {
+	.square{
+		width: 33.3%; 
+		height: 25%;
+	}
+}
+@media (min-width: 1200px){
+}
+
 
 
 
