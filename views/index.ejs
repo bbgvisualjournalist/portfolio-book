@@ -73,8 +73,7 @@
 					</p>
 				</div>
 				<div class='label'>
-					<h3>
-						drawing-hands<br/><span style='font-weight:normal; font-size: .8em;'><%= projectData.category %></span>
+					<h3>drawing-hands<br/><span style='font-weight:normal; font-size: .8em;'><%= projectData.category %></span>
 					</h3>
 				</div>
 			</div>
@@ -85,7 +84,7 @@
 				</div>
 				<%- grid %>
 			</div>
-
+			<div class='clearAll'></div>
 			<div id="about">
 				<div class='menuBox'>
 					<p><img src="<%- data[0].mugshot %> " style="float: left; margin-right: 15px">
@@ -104,7 +103,7 @@
 					</div>
 				<% } %>
 
-				<h1 class='balance-text'><%= projectData.title %></h1>
+				<h1 class=''><%= projectData.title %></h1>
 				<h2 class='summary balance-text'><%= projectData.summary %></h2>
 				<div class="description<% if ( projectData.singlecolumn == "TRUE"){ %> singleColumn<% } %>">
 					<%- projectData.descriptionSplit %>
