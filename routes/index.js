@@ -165,6 +165,7 @@ router.get('/', function(req, res, next) {
 		previousProject: previousProjectNumber,
 		grid: grid,
 		intro: splitParagraphs(data[0].introduction),
+		introDetail: data[0].introdetail,
 		introTitle: data[0].introtitle,
 		introSummary: data[0].introsummary,
 		description: data[0].biography
