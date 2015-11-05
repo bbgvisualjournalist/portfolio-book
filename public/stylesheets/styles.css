@@ -127,7 +127,15 @@ p a, strong{
 #about .description p:last-of-type{
 	margin: 0;
 }
-
+#about .credit{
+	line-height: 0;
+	font-size: .7em;
+	color:#999;
+	display: none;
+}
+#about .credit div{
+	text-align: right;
+}
 
 
 #illustration.pano{
@@ -290,6 +298,34 @@ p a, strong{
 		width: 33.3%; 
 		height: 25%;
 	}
+	#about .credit{
+		display: block;
+		line-height: 0;
+		font-size: .7em;
+		color:#999;
+		position: absolute;
+		bottom: 275px;
+		left: 50.5%;
+		width: 200px;
+
+		/* Border is the new background */
+		background: none;
+
+		/* Rotate from top left corner (not default) */
+		-webkit-transform-origin: 0 0;
+		-moz-transform-origin:    0 0;
+		-ms-transform-origin:     0 0;
+		-o-transform-origin:      0 0;
+
+		-webkit-transform: rotate(90deg); 
+		-moz-transform:    rotate(90deg); 
+		-ms-transform:     rotate(90deg); 
+		-o-transform:      rotate(90deg); 
+	}
+	#about .credit div{
+		text-align: right;
+	}
+
 }
 @media (min-width: 1200px){
 }
