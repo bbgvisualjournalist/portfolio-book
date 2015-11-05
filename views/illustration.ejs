@@ -41,7 +41,12 @@
 					Brian Williamson<br/><span class='tag'><%= projectData.category %></span>
 				</h3>
 			</div>
-			<div class='credit'><div><%= projectData.employer %></div></div>
+			<% if (projectData.employer){ %>
+				<div class='credit'><div><%= projectData.employer %></div></div>
+			<% } else {%>
+				<div class='credit'><div>Brian Williamson</div></div>
+			<% } %>
+
 
 			<% if (projectData.detail){ %>
 				<div id='detail' >
@@ -69,6 +74,12 @@
 		<div id='swipe' style=''>Swipe to explore <span class='hideMobile'>this panoramic image</span></div>
 
 		<div id="about" class='pano'>
+			<% if (projectData.employer){ %>
+				<div class='credit'><div><%= projectData.employer %></div></div>
+			<% } else {%>
+				<div class='credit'><div>Brian Williamson</div></div>
+			<% } %>
+
 			<h1 class='balance-text'><%= projectData.title %></h1>
 			<h2 class='summary balance-text'><%= projectData.summary %></h2>
 			<div class="description <% if ( projectData.singlecolumn == true){ %> singleColumn<% } %>">

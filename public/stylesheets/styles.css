@@ -137,7 +137,14 @@ p a, strong{
 #about .credit div{
 	text-align: right;
 }
-
+#about .credit div:before{
+	content: '\00a9 \00a0';
+}
+#about.pano .credit{
+	position: absolute;
+	top: 350px;
+	right: 10%;
+}
 
 #illustration.pano{
 	width: 100%;
@@ -299,6 +306,25 @@ p a, strong{
 		width: 33.3%; 
 		height: 25%;
 	}
+
+	#about.pano .credit{
+		position: absolute;
+		top: 350px;
+		right: -25%;
+
+		/* Rotate from top left corner (not default) */
+		-webkit-transform-origin: 0 0;
+		-moz-transform-origin:    0 0;
+		-ms-transform-origin:     0 0;
+		-o-transform-origin:      0 0;
+
+		-webkit-transform: rotate(0); 
+		-moz-transform:    rotate(0); 
+		-ms-transform:     rotate(0); 
+		-o-transform:      rotate(0); 
+	}
+
+
 	#about .credit{
 		position: absolute;
 		bottom: 275px;
@@ -322,7 +348,6 @@ p a, strong{
 	#about .credit div{
 		text-align: right;
 	}
-
 }
 @media (min-width: 1200px){
 }
