@@ -60,14 +60,12 @@
 <% include partials/template/menu.ejs %>
 
 			</div>
-			<a href='' id='prev'><div></div></a>
-			<a href='' id='next'><div></div></a>
+		<a href='/<%= previousProject %>' id='prev'><div></div></a>
+		<a href='/<%= nextProject %>' id='next'><div></div></a>
 		</div><!-- container -->
-		<% include partials/template/scripts.ejs %>
+		
+<% include partials/template/scripts.ejs %>
 		<script type="text/javascript">
-			$('#prev').prop('href', '/<%= previousProject %>');
-			$('#next').prop('href', '/<%= nextProject %>');
-
 			//Dropdown navigation
 			$("#about h3" ).click(function() {
 				$( "#about .menuBox" ).slideToggle("drop");
