@@ -89,7 +89,7 @@ p a, strong{
 	text-transform: uppercase;
 	font-size: .8em;
 }
-#header h3 .tag{
+#header h3 .tag, #about h3 .tag{
 	font-weight:normal;
 	font-size: .7em;
 }
@@ -409,6 +409,7 @@ p a, strong{
 		text-transform: uppercase;
 		font-size: .8em;
 	}
+
 	#about h3.noDetail{
 		margin-bottom: 30%;
 	}
