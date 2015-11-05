@@ -130,8 +130,9 @@ p a, strong{
 #about .credit{
 	line-height: 0;
 	font-size: .7em;
-	color:#999;
-	display: none;
+	color:#CCC;
+	width: 80%;
+	margin: 7px auto 0 auto;
 }
 #about .credit div{
 	text-align: right;
@@ -299,10 +300,6 @@ p a, strong{
 		height: 25%;
 	}
 	#about .credit{
-		display: block;
-		line-height: 0;
-		font-size: .7em;
-		color:#999;
 		position: absolute;
 		bottom: 275px;
 		left: 50.5%;
