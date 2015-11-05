@@ -1,5 +1,4 @@
-	<title>Children's book portfolio</title>
-	<!--<title><%- data[0].title %> <%if (pageTitle!=''){%> :: <%= pageTitle %> <% } %></title>-->
+	<title><%- data[0].title %> <%if (pageTitle!=''){%> :: <%= pageTitle %> <% } %></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
@@ -11,10 +10,11 @@
 	<meta name="author" content="<%= data[0].name %>" />
 
 	<!-- for Facebook -->
-	<meta property="og:title" content="<%- data[0].title %>  :: <%= pageTitle %>" />
+	<meta property="og:title" content="<%- data[0].title %> :: <%= pageTitle %>" />
 	<meta property="og:type" content="<%- data[0].metatype %>" />
 	<meta property="og:image" content="<%= metaImage %>" />
 	<meta property="og:url" content="<%- url %>" />
+	<meta property="og:description" content="<%- data[0].metadescription %>" />
 	<meta property="og:description" content="<%- metaDescription %>" />
 
 	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>

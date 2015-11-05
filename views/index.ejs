@@ -11,7 +11,7 @@
 		}
 		</style>
 	</head>
-	<body>
+	<body id='home'>
 
 		<div id='container'>
 			<div id='header' <%if (projectData.imageshape!='pano'){ %> class='pano' <% } %> >
@@ -21,7 +21,7 @@
 					</p>
 				</div>
 				<div class='label'>
-					<h3>Brian Williamson<br/><span style='font-weight:normal; font-size: .8em;'>portfolio</span>
+					<h3>Brian Williamson<br/><span class='tag'>portfolio</span>
 					</h3>
 				</div>
 			</div>
@@ -41,7 +41,7 @@
 				</div>
 				<div class='label'>
 					<h3 <% if (projectData.detail==''){ %>class="noDetail"<% } %>>
-						Brian Williamson<br/><span style='font-weight:normal; font-size: .8em;'>portfolio</span>
+						Brian Williamson<br/><span class='tag'>portfolio</span>
 					</h3>
 				</div>
 
@@ -57,14 +57,8 @@
 					<%- intro %>
 				</div>
 
-				<div id='menuBar'>
-					<ul>
-						<a href='/'><li>Home</li></a>
-						<a href=''><li>Portfolio</li></a>
-						<a href=''><li>About</li></a>
-						<a href='https://twitter.com/drawinghands'><li>Twitter</li></a>
-					</ul>
-				</div>
+<% include partials/template/menu.ejs %>
+
 			</div>
 			<a href='' id='prev'><div></div></a>
 			<a href='' id='next'><div></div></a>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<% include partials/template/head.ejs %>
+	<% include partials/template/headProject.ejs %>
 	<style type="text/css">
 	</style>
 </head>
-<body>
+<body id='portfolio'>
 
 <div id='container'>
 	<div id='header' <%if (projectData.imageshape!='pano'){ %> class='pano' <% } %> >
@@ -16,7 +16,7 @@
 			</div>
 			<div class='label'>
 				<h3 <% if (projectData.detail==''){ %>class="noDetail"<% } %>>
-					Brian Williamson<br/><span style='font-weight:normal; font-size: .8em;'><%= projectData.category %></span>
+					Brian Williamson<br/><span class='tag'><%= projectData.category %></span>
 				</h3>
 			</div>
 	</div>
@@ -26,7 +26,7 @@
 		<div id="illustration" class='<%= projectData.imageshape %>' style='background-image: url(/images/<%= projectData.imagebase %>.jpg);'>
 				<div class='gradient'>
 				</div>
-			<img src='/images/<% if (projectData.imagemobilealt==''){ %><%= projectData.imagebase %><%}else{ %><%= projectData.imagemobilealt %><% } %>.jpg'/>
+			<img src='/images/<% if (projectData.imagemobilealt==''){ %><%= projectData.imagebase %><%}else{ %><%= projectData.imagemobilealt %><% } %>.jpg' alt='<%= projectData.alttag %>'/>
 		</div>
 		<div class='clearAllMobile'></div>
 
@@ -38,7 +38,7 @@
 			</div>
 			<div class='label'>
 				<h3 <% if (projectData.detail==''){ %>class="noDetail"<% } %>>
-					Brian Williamson<br/><span style='font-weight:normal; font-size: .8em;'><%= projectData.category %></span>
+					Brian Williamson<br/><span class='tag'><%= projectData.category %></span>
 				</h3>
 			</div>
 
@@ -54,14 +54,8 @@
 				<%- projectData.descriptionSplit %>
 			</div>
 
-			<div id='menuBar'>
-				<ul>
-					<a href='/'><li>Home</li></a>
-					<a href=''><li>Portfolio</li></a>
-					<a href=''><li>About</li></a>
-					<a href='https://twitter.com/drawinghands'><li>Twitter</li></a>
-				</ul>
-			</div>
+<% include partials/template/menu.ejs %>
+
 		</div>
 		<a href='' id='prev'><div></div></a>
 		<a href='' id='next'><div></div></a>
@@ -69,7 +63,7 @@
 	<% } else {%>
 
 		<div id="illustration" class='pano' style='box-shadow: 0 0 5px #333;'>
-			<img src='/images/<%= projectData.imagebase %>.jpg' style=''/>
+			<img src='/images/<%= projectData.imagebase %>.jpg' alt='<%= projectData.alttag %>'/>
 		</div>
 		<div id='swipe' style=''>Swipe to explore <span class='hideMobile'>this panoramic image</span></div>
 
@@ -80,14 +74,7 @@
 				<%- projectData.descriptionSplit %>
 			</div>
 	
-			<div id='menuBar'>
-				<ul>
-					<a href='/'><li>Home</li></a>
-					<a href='/1000'><li>Portfolio</li></a>
-					<a href=''><li>About</li></a>
-					<a href='https://twitter.com/drawinghands'><li>Twitter</li></a>
-				</ul>
-			</div>
+<% include partials/template/menu.ejs %>
 
 		</div>
 		<a href='' id='prev'><div></div></a>
@@ -119,9 +106,24 @@
 			$('#illustration').animate({scrollLeft: scrollPercentage}, 1000);
 		}
 
+		var scrollStart = <%=projectData.panostartpercentage %>
+
+		function scrollPano(scrollPercentageNumber){
+			var imageWidthTest = $("#illustration img").width();
+
+			var percent = scrollPercentageNumber;
+			var scrollPercentage = imageWidthTest * percent;
+
+			$('#illustration').animate({scrollLeft: scrollPercentage}, 1000);
+		}
+
 		$(window).load( function() {
-			scrollPano();
+			scrollPano(scrollStart);
 		});
+		$('#swipe').click(function(){
+			var randomPercent = Math.random();
+			scrollPano(randomPercent);
+		})
 
 	<% } %>
 
