@@ -224,6 +224,7 @@ p a, strong{
 	margin: 0 auto;
 	padding: 0;
 	background: #FFF;
+	text-align: center;
 }
 #menuBar ul li{
 	display: inline-block;
