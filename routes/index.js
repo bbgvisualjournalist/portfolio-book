@@ -63,15 +63,15 @@ router.get('/:number', function(req, res, next) {
 
 			//Define the previous project number;
 			if(k == 0){
-				previousProjectNumber = portfolioData[portfolioData.length - 1].projectnumber;
+				previousProjectNumber = "\\";
 			} else {
-				previousProjectNumber = portfolioData[k - 1].projectnumber;
+				previousProjectNumber = "\\" + portfolioData[k - 1].projectnumber;
 			}
 			//Define the next project number
 			if(k == portfolioData.length - 1){
-				nextProjectNumber = portfolioData[0].projectnumber;
+				nextProjectNumber = "\\";
 			}else{
-				nextProjectNumber = portfolioData[k + 1].projectnumber;
+				nextProjectNumber = "\\" + portfolioData[k + 1].projectnumber;
 			}
 		}
 	}
@@ -132,8 +132,8 @@ router.get('/', function(req, res, next) {
 
 	var projectData = portfolioData[1];
 
-	var previousProjectNumber = 1001;
-	var nextProjectNumber = 1002;
+	var previousProjectNumber = "/1011";
+	var nextProjectNumber = "/1000";
 
 	projectData.descriptionSplit = splitParagraphs(projectData.description);
 

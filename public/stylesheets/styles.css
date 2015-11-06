@@ -429,7 +429,7 @@ p a, strong{
 	#illustration .gradient{
 		background-image: linear-gradient(
 				to left,
-				rgba(10, 10, 10, .3),
+				rgba(10, 10, 10, .1),
 				rgba(10, 10, 10, 0) 10%
 		);
 		position: absolute;
@@ -503,6 +503,22 @@ p a, strong{
 	#menuBar ul li{
 		width: 24.5%;
 	}
+
+	.gradientPano{
+		background-image: linear-gradient(
+				to left,
+				rgba(10, 10, 10, .1),
+				rgba(0, 0, 0, 0) 10%
+		);
+		position: absolute;
+		width: 49.8%;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		pointer-events: none;
+	}
+
+
 
 }
 @media (min-width: 1200px) {

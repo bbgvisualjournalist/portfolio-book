@@ -63,14 +63,17 @@
 <% include partials/template/menu.ejs %>
 
 		</div>
-		<a href='/<%= previousProject %>' id='prev'><div></div></a>
-		<a href='/<%= nextProject %>' id='next'><div></div></a>
+		<a href='<%= previousProject %>' id='prev'><div></div></a>
+		<a href='<%= nextProject %>' id='next'><div></div></a>
 
 	<% } else {%>
 
+		<div class='gradientPano'>
+		</div>
 		<div id="illustration" class='pano' style='box-shadow: 0 0 5px #333;'>
 			<img src='/images/<%= projectData.imagebase %>.jpg' alt='<%= projectData.alttag %>'/>
 		</div>
+
 		<div id='swipe' style=''>Swipe to explore <span class='hideMobile'>this panoramic image</span></div>
 
 		<div id="about" class='pano'>
@@ -95,8 +98,8 @@
 <% include partials/template/menu.ejs %>
 
 		</div>
-		<a href='/<%= previousProject %>' id='prev'><div></div></a>
-		<a href='/<%= nextProject %>' id='next'><div></div></a>
+		<a href='<%= previousProject %>' id='prev'><div></div></a>
+		<a href='<%= nextProject %>' id='next'><div></div></a>
 
 	<% }%>
 </div><!-- container -->
