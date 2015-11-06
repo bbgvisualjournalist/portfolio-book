@@ -14,7 +14,7 @@
 						<%- description %>
 				</p>
 			</div>
-			<div class='label'>
+			<div class='label pano'>
 				<h3 <% if (projectData.detail==''){ %>class="noDetail"<% } %>>
 					Brian Williamson<br/><span class='tag'><%= projectData.category %></span>
 				</h3>
@@ -59,6 +59,13 @@
 			<div class="description<% if ( projectData.singlecolumn == "TRUE"){ %> singleColumn<% } %>">
 				<%- projectData.descriptionSplit %>
 			</div>
+			<% if(projectData.embedvideo) { %>
+			<div class='video'>
+				<div class='embed-container'>
+					<iframe src='<%= projectData.embedvideo %>' frameborder='0' allowfullscreen></iframe>
+				</div>
+			</div>
+			<% } %>
 
 <% include partials/template/menu.ejs %>
 
@@ -87,7 +94,10 @@
 			<h2 class='summary balance-text'><%= projectData.summary %></h2>
 			<div class="description <% if ( projectData.singlecolumn == true){ %> singleColumn<% } %>">
 				<%- projectData.descriptionSplit %>
+
+
 			</div>
+
 			<!--
 			<% if (projectData.detail){ %>
 				<div id='detail' style='max-width:700px; margin: 0 auto;'>

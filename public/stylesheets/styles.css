@@ -163,7 +163,8 @@ p a, strong{
 	background: rgba(10, 10, 10, .9) url(../images/arrow_scroll.png) no-repeat center left / 40px 40px;
 	width: auto;
 	height: 20px;
-	position: relative;
+	position: absolute;
+	top:350px;
 	display: inline-block;
 	margin-top: -20px;
 	z-index: 9998;
@@ -194,11 +195,13 @@ p a, strong{
 	position: fixed;
 	right: 0;
 	top: 50%;
+	z-index: 9999;
 }
 #prev{
 	position: fixed;
 	left:0;
 	top:50%;
+	z-index: 9999;
 }
 #prev div{
 	width: 40px;
@@ -490,9 +493,17 @@ p a, strong{
 		column-count: 2;
 	}
 
+	#header .label {
+		float: right;
+		width: 50%;
+	}
 
 	.pano #menuBar{
 		width: 100%;
+	}
+	.pano #menuBar ul{
+		width: 50.5%;
+		float: right;
 	}
 
 	#menuBar{
@@ -517,9 +528,6 @@ p a, strong{
 		margin: 0;
 		pointer-events: none;
 	}
-
-
-
 }
 @media (min-width: 1200px) {
 	#about .description{
@@ -574,3 +582,32 @@ p a, strong{
 	}
 }
 
+
+/*responsive video embed styles */
+.video{
+	margin: 0 auto 70px auto;
+	width: 80%;
+}
+
+@media (min-width: 900px) {
+	.video{
+		margin: 0 auto 70px auto;
+		width: 66%;
+	}
+}
+.embed-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+	max-width: 100%;
+} 
+.embed-container iframe, 
+.embed-container object, 
+.embed-container embed {
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%; 
+}
