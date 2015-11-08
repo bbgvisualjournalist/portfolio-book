@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Storyboard experiment</title>
+	<title>Elephant book dummy</title>
 	<meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'/>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
@@ -19,6 +19,7 @@
 	<meta property="og:url" content="" />
 	<meta property="og:description" content="" />
 
+	<link rel='stylesheet' href='stylesheets/styles.css' />
 	<link rel='stylesheet' href='stylesheets/storyboard.css' />
 	<style type="text/css">
 	</style>
@@ -26,22 +27,29 @@
 </head>
 <body>
 
-<div id='container'>
+<div id='container' class='pano'  style='padding-top:0; padding-bottom: 150px;'>
+	<div id='header' class='pano' style= 'display: block; width: 90%; margin: 0 auto;'>
+			<div class='label' style='display: block; width: 100%; margin: 0 0 40px 0;'>
+				<h3 >
+					Brian Williamson<br/>Book dummy</span>
+				</h3>
+			</div>
+	</div>
+
 	<h1>Sample storyboard</h1>
-	<h3>Description could go here</h3>
+	<h3 class='description'>Description could go here</h3>
 
 	<div id='grid'>
-	<!--	<div class="panel">
-			<div class="image" style='background-image: url(images/test1x1.png);'>
-				<img src="images/rectangle16x9.png">
-				<p class="number">1</p>
-			</div>
-			<p class="script">This is the text from the script that goes here.</p>
-			<p class="description">This is a description of what goes in the panel.</p>
-		</div>
-	-->
 	</div><!-- grid -->
+
+
 </div><!-- container -->
+
+			<div id='menuBar' style='width: 100%;'>
+				<ul >
+					<a href='/'><li id='home'>Home</li></a><a href='/1000'><li id='portfolio'>Portfolio</li></a><a href='/1009'><li id='pano'>Panos</li></a><a href='https://twitter.com/drawinghands'><li>Twitter</li></a>
+				</ul>
+			</div>
 
 <div id='footer'>
 </div><!-- footer -->
@@ -95,7 +103,7 @@ function showInfo(data, tabletop) {
 	}
 
 	$("#container h1").text(data.config.elements[0].title);
-	$("#container h3").text(data.config.elements[0].description + version);
+	$("#container h3.description").text(data.config.elements[0].description + version);
 
 	var panels = "";
 	var image, script, description, imagePrefix, speaker;
