@@ -58,7 +58,12 @@
 			<h2 class='summary balance-text'><%= projectData.summary %></h2>
 			<div class="description<% if ( projectData.singlecolumn == "TRUE"){ %> singleColumn<% } %>">
 				<%- projectData.descriptionSplit %>
+				<% if(projectData.promo) { %>
+					<p class='promo'><%- projectData.promo %></p>
+				<% } %>
 			</div>
+
+
 			<% if(projectData.embedvideo) { %>
 			<div class='video'>
 				<div class='embed-container'>
