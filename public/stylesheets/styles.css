@@ -136,6 +136,7 @@ p a, strong{
 	font-size: .8em;
 	font-weight: 600;
 	line-height: 1.2em;
+	text-align: center;
 }
 
 #about .credit{
