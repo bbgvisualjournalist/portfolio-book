@@ -1,18 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Elephant book dummy</title>
-	<meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'/>
-	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/retina_icon.png">
-
-	<!-- for Google -->
-	<meta name="description" content=""/>
-	<meta name="keywords" content="" />
-	<meta name="author" content="Brian Williamson" />
-
-	<link rel='stylesheet' href='stylesheets/styles.css' />
+	<% include partials/template/headProject.ejs %>
 	<link rel='stylesheet' href='stylesheets/storyboard.css' />
 	<style type="text/css">
 	</style>
@@ -74,14 +63,13 @@ function getParameterByName(name){
 //default = '1AH4JuiQF-SdS97mqio8cns9G3wMp1o0YA-5H_4yk_q4'
 //var public_spreadsheet_url = '1AH4JuiQF-SdS97mqio8cns9G3wMp1o0YA-5H_4yk_q4'
 
-var public_spreadsheet_url = '1QOqxqfaEPLDlvpNDnn_cqrLzJQMyQLDlg7gdvfPf1Vo';
+var public_spreadsheet_url = <%= projectData.storyboardSpreadsheetUrl %>;
 var spreadsheetPagesQuery = getParameterByName('sheet');
 
 if(spreadsheetPagesQuery!=''&&spreadsheetPagesQuery!=null){
 	public_spreadsheet_url = spreadsheetPagesQuery;
 }
-
-
 </script>
+
 </body>
 </html>
