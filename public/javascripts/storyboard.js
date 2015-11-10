@@ -92,7 +92,7 @@ function showInfo(data, tabletop) {
 			pageShadow = '';
 		}
 
-		panels += '	<div class="panel"><div class="image" style="background-image: url(' + imagePrefix + image + ');"><img src="images/storyboard_' + imageSize + '.png" ' + pageShadow + '>' + panelNumber + '</div>' + timecode + '<p class="script">' + script + '</p><p class="description">'+ description + '</p></div>';
+		panels += '	<div class="panel"><div class="image" style="background-image: url(' + imagePrefix + image + ');"><img src="/images/storyboard_' + imageSize + '.png" ' + pageShadow + '>' + panelNumber + '</div>' + timecode + '<p class="script">' + script + '</p><p class="description">'+ description + '</p></div>';
 		speaker = "";
 	}
 

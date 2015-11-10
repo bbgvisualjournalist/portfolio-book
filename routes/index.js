@@ -45,8 +45,74 @@ function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+/* home page */
+router.get('/', function(req, res, next) {
 
-/* GET home page. */
+	var data = global.site.sitewide;
+	var portfolioData = global.portfolio.sitewide;
+	var projectData;
+
+
+	var grid = ""
+
+	/*for (var i = portfolioData.length - 1; i >= 0; i--) {*/
+	for (var i = 0; i< portfolioData.length; i++) {
+		grid +="<a href='/"+ portfolioData[i].projectnumber +"'><div class='square' style='background-image: url(/images/square_" + portfolioData[i].imagebase + ".jpg)'><img src='/images/square_transparent.png'/></div></a>";
+	};
+
+	var projectData = portfolioData[1];
+
+	var previousProjectNumber = "/1011";
+	var nextProjectNumber = "/1000";
+
+	projectData.descriptionSplit = splitParagraphs(projectData.description);
+
+	var currentCategory = projectData.category;
+
+	var verticalImage = '';
+	if (projectData.verticalimage == 'TRUE'){
+		verticalImage = 'verticalImage';
+	}
+
+	var pageTitle = projectData.title;
+
+	var metaImage = data[0].url + '/images/' + projectData.imagebase + '.jpg';
+	var url = data[0].url + '/';
+	var metaDescription = firstParagraph(projectData.description)
+
+	res.render('index', {
+		data: data,
+		projectData: projectData,
+		pageTitle: pageTitle,
+		portfolioDescription: data[0][currentCategory],
+		verticalImage: verticalImage,
+		category: 'showAll',
+		metaImage: metaImage,
+		metaDescription: metaDescription,
+		url: url,
+		loopLimit: 3,
+		nextProject: nextProjectNumber,
+		previousProject: previousProjectNumber,
+		grid: grid,
+		intro: splitParagraphs(data[0].introduction),
+		introDetail: data[0].introdetail,
+		introTitle: data[0].introtitle,
+		introSummary: data[0].introsummary,
+		description: data[0].biography
+	});
+});
+
+
+/* GET dummy page. Show all. */
+router.get('/dummy/', function(req, res, next) {
+	res.render('storyboard', { 
+		pageTitle: "Brian Williamson’s portfolio",
+		storyboardSpreadsheetUrl: '1QOqxqfaEPLDlvpNDnn_cqrLzJQMyQLDlg7gdvfPf1Vo'
+	});
+});
+
+
+/* GET illustration number. */
 router.get('/:number', function(req, res, next) {
 	var featuredNumber = req.params.number;
 
@@ -116,61 +182,13 @@ router.get('/:number', function(req, res, next) {
 		description: data[0].biography
 	});
 })
-router.get('/', function(req, res, next) {
-
-	var data = global.site.sitewide;
-	var portfolioData = global.portfolio.sitewide;
-	var projectData;
 
 
-	var grid = ""
 
-	/*for (var i = portfolioData.length - 1; i >= 0; i--) {*/
-	for (var i = 0; i< portfolioData.length; i++) {
-		grid +="<a href='/"+ portfolioData[i].projectnumber +"'><div class='square' style='background-image: url(/images/square_" + portfolioData[i].imagebase + ".jpg)'><img src='/images/square_transparent.png'/></div></a>";
-	};
 
-	var projectData = portfolioData[1];
 
-	var previousProjectNumber = "/1011";
-	var nextProjectNumber = "/1000";
 
-	projectData.descriptionSplit = splitParagraphs(projectData.description);
 
-	var currentCategory = projectData.category;
-
-	var verticalImage = '';
-	if (projectData.verticalimage == 'TRUE'){
-		verticalImage = 'verticalImage';
-	}
-
-	var pageTitle = projectData.title;
-
-	var metaImage = data[0].url + '/images/' + projectData.imagebase + '.jpg';
-	var url = data[0].url + '/';
-	var metaDescription = firstParagraph(projectData.description)
-
-	res.render('index', {
-		data: data,
-		projectData: projectData,
-		pageTitle: pageTitle,
-		portfolioDescription: data[0][currentCategory],
-		verticalImage: verticalImage,
-		category: 'showAll',
-		metaImage: metaImage,
-		metaDescription: metaDescription,
-		url: url,
-		loopLimit: 3,
-		nextProject: nextProjectNumber,
-		previousProject: previousProjectNumber,
-		grid: grid,
-		intro: splitParagraphs(data[0].introduction),
-		introDetail: data[0].introdetail,
-		introTitle: data[0].introtitle,
-		introSummary: data[0].introsummary,
-		description: data[0].biography
-	});
-});
 
 
 /* GET portfolio page. Show all. */
