@@ -1,12 +1,7 @@
-.columnOne{
-	-webkit-column-count: 1;
-	-moz-column-count: 1;
-	column-count: 1;
-}
-.columnTwo{
-	-webkit-column-count: 2;
-	-moz-column-count: 2;
-	column-count: 2;
+.columns(@columnCount:1){
+	-webkit-column-count: @columnCount;
+	-moz-column-count: @columnCount;
+	column-count: @columnCount;
 }
 
 .buttonNextPrev{
@@ -170,6 +165,7 @@ p a, strong{
 	margin: 25px auto 75px auto;
 	font-family: @textSerif;
 	line-height: 1.5em;
+	.columns;
 }
 #about .description p{
 	margin: 0 0 1.5em 0;
@@ -412,10 +408,10 @@ p a, strong{
 		margin: 5px auto 0 auto;
 	}
 	#about .description{
-		.columnTwo;
+		.columns(2);
 	}
 	#about .description.singleColumn{
-		.columnOne;
+		.columns;
 		text-align: center;
 	}
 }
@@ -502,7 +498,7 @@ p a, strong{
 	#about .description{
 		width: 66%;
 		margin:25px auto 100px auto;
-		.columnTwo;
+		.columns;
 	}
 	#about.pano {
 		float: none;
@@ -512,7 +508,7 @@ p a, strong{
 		width: 80%;
 		max-width: 700px;
 		margin: 25px auto 100px auto;
-		.columnTwo;
+		.columns;
 	}
 
 	#header .label {
@@ -553,10 +549,10 @@ p a, strong{
 }
 @media (min-width: 1200px) {
 	#about .description{
-		.columnOne;
+		.columns;
 	}
 	#about .description.singleColumn{
-		.columnOne;
+		.columns;
 	}
 	#about h1{
 		font-size: 3em;
@@ -564,7 +560,7 @@ p a, strong{
 }
 @media (min-width: 1400px) {
 	#about .description{
-		.columnTwo;
+		.columns(2);
 	}
 }
 
